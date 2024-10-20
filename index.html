@@ -1,1 +1,189 @@
-<h1>Hellow World</h1>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6G Features</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<body>
+<div class="menu">
+    <ul onclick="moveBorder(this)" class="active" id="menu-main"><a>6G</a></ul>
+    <ul class="details" id="menu-details" onclick="moveBorder(this)"><a>Подробнее</a></ul>
+    <ul class="questions" id="menu-questions" onclick="moveBorder(this)"><a>Вопросы?</a></ul>
+    <div class="Border"></div>  
+</div> 
+<div class="LangSel" onclick="toggleLanguage()">RU</div>
+<div class="content">
+    <div class="image-container">
+        <img id="scroll-image" src="https://static.wixstatic.com/media/a46fdc_7847ac8a9103452c8e3d1c675647c471~mv2.jpeg" alt="Описание изображения" class="center-image">
+        <p class="center-text" id="text-content">6G: Будущие Автономных и Иммерсивных Технологий</p> <!-- Текст теперь ниже изображения -->
+    </div>
+</div>
+<h1 style="margin-left: 2%;margin-top: 7%;font-size: 36pt;" id="meet6g">Основные моменты 6G.</h1>
+<div class="advantages">
+    <div class="card card1" onclick="openCard(this)">
+        <p class="card-text" style="color: #000000;">Суперскорость</p>
+        <div class="add-icon" >+</div>
+    </div>
+    <div class="card card2" onclick="openCard(this)">
+        <p class="card-text" >Интеллектуальные сети</p>
+        <div class="add-icon">+</div>
+    </div>
+    <div class="card card3" onclick="openCard(this)" style="background-color: #837070;">
+        <p class="card-text">Иммерсивность</p>
+        <div class="add-icon">+</div>
+    </div>
+    <div class="card card4" onclick="openCard(this)" style="background-color: #383838;">
+        <p class="card-text">Безопасность</p>
+        <div class="add-icon">+</div>
+    </div>
+</div>
+<div class="modal-background" id="modal-background"></div>
+<div class="modal-card" id="modal-card">
+    <div class="modal-content">
+        <span class="close" onclick="closeCard()">&times;</span>
+        <div class="modal-body">
+            <h1 id="modal-title">Заголовок</h1>
+            <p id="modal-text">Текст карточки</p>
+        </div>
+    </div>
+</div>
+<h1 style="margin-left: 2%;margin-top: 7%;font-size: 36pt;" id="meet6g">Что такое 6G?</h1>
+<p class="centered-text">
+    «6G» — это шестое поколение беспроводной технологии, следующий преемник предыдущих поколений беспроводной технологии, таких как 5G, 4G и т. д. Каждое новое поколение предлагало новые возможности, и 6G не исключение. 
+    <br><br>Представленная в 1990-х годах беспроводная технология 2G улучшила плохое качество голоса, время работы батареи и безопасность ранних сетей мобильной связи. Она также добавила текстовые сообщения SMS для того времени. 
+    <br><br>Появившаяся в начале 2000-х годов сеть 3G открыла новые возможности, такие как видеозвонки, надежная поддержка мобильных приложений, поддержка мультимедийных сообщений (MMS) и другие основополагающие элементы мобильных вычислений, какими мы их знаем сегодня. 
+    <br><br>Впервые появившись в 2010 году, технология 4G обеспечила значительно более высокую скорость передачи данных, меньшую задержку и возможность передачи видео высокой четкости в беспроводных сетях. 
+    <br><br>Находясь на стадии глобального внедрения после запуска в 2019 году, 5G снова увеличил скорость на порядки, предлагает новые архитектуры, разработанные для новых приложений, таких как сети на основе Интернета вещей (IoT), и поддерживает ранние варианты использования для новых приложений, таких как автономное вождение и дополненная реальность (AR). 
+    <br><br><span style="font-weight: bold;">6G продолжит недавнюю историю быстрых инноваций в области беспроводной связи.</span> В настоящее время технология 6G находится на ранних стадиях исследований. Как и предыдущие поколения беспроводных технологий, ожидается, что она будет развернута со временем после начальных развертываний около 2030 года.
+</p>
+<img src="https://static.wixstatic.com/media/a46fdc_f588a7836cbc46ef81775f3f6c4f36a2~mv2.jpeg" alt="Описание изображения" class="centered-image">
+<div class="left-aligned-text">
+    <p>6G позволит свободно перемещаться в киберфизическом континууме, между взаимосвязанным физическим миром чувств, действий и впечатлений и его программируемым цифровым представлением.
+        Киберфизический континуум 6G включает метавселенную в ее обычном понимании — цифровую среду, где аватары взаимодействуют в мире VR/AR — и идет дальше, обеспечивая гораздо более тесную связь с реальностью.
+       <br><br>В киберфизическом континууме станет возможным проецировать цифровые объекты на физические объекты, представленные в цифровом виде, позволяя им беспрепятственно сосуществовать как объединенная реальность и тем самым улучшать реальный мир.
+    <br><br>Подробнее на <a href="https://www.ericsson.com/en/6g" style="color: white; font-size: 16,5pt;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ericsson_logo.svg/768px-Ericsson_logo.svg.png" alt="Ericsson Logo" style="width: 20px; height: 20px; margin-left: 5px; vertical-align: middle; border-radius: 0%;"></a></p>
+       <img src="https://static.wixstatic.com/media/a46fdc_23fe751ad81640bd8eb505db7e7739aa~mv2.jpeg">
+</div>
+<div class="black-background-block">
+    <img src="https://static.wixstatic.com/media/a46fdc_921e00b31c0347e98551395a1b2beb91~mv2.png" class="centered-image" style="padding-top: 400px;">
+    <h1 class="overlay-title" style="font-size: 48pt;">Интеллектуальные роботы с помощью 6G</h1>
+</div>
+<div class="centered-text-black">
+    <p style="width: 60%; margin: auto;">Технологии 6G откроют новые горизонты в развитии роботов и автономных систем, позволяя им совершать взаимодействие с физическим и цифровым мирами на уровне, ранее недоступном. Представь себе будущее, где беспилотные автомобили и дроны будут мгновенно обмениваться данными, реагировать на изменения в реальном времени и принимать более точные решения благодаря минимальной задержке в сети 6G.
+    <br><br>Внедрение 6G обеспечит высокие скорости передачи данных и надежную связь, что станет основой для умных городов, автоматизированного производства и беспилотных транспортных средств. Эти системы смогут «учиться» быстрее благодаря интеграции с искусственным интеллектом, что сделает их более адаптивными и безопасными в использовании.
+<br><br>Подробнее в <a href="https://www.free6gtraining.com/2023/11/6g-enabled-robots-and-autonomous-systems.html" style="font-size: 16pt;color: white;">источнике</a></p>
+</div>
+<h1 style="margin-left: 2%;margin-top: 7%;font-size: 36pt;" id="meet6g">Суперскорость 6G.</h1>
+<div class="white-background-text">
+    <p>
+        6G обещает революционные изменения в области скорости интернета, предоставляя возможность скачивания и передачи данных с невероятной скоростью — вплоть до одного терабита в секунду. Для сравнения, это скорость в 100 раз выше, чем у современных 5G сетей. С такими возможностями, 6G станет основой для приложений с огромными объемами данных, таких как голографические видеозвонки и полноценные цифровые миры.  
+        Эта технология позволит создавать виртуальные и дополненные реальности на новом уровне погружения, делая возможными такие проекты, как реалистичные виртуальные миры и мгновенные синхронные взаимодействия в них.
+    </p>
+    <div class="diagram-container">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="600" height="400" viewBox="0 0 1890 1417">
+            <defs>
+                <style>
+                    .cls-1, .cls-2 {
+                        fill-rule: evenodd;
+                    }
+
+                    .cls-1 {
+                        fill: url(#linear-gradient);
+                    }
+
+                    .cls-2 {
+                        fill: url(#linear-gradient-2);
+                    }
+
+                    .cls-3, .cls-4 {
+                        fill: none;
+                        stroke-width: 18px;
+                    }
+
+                    .cls-3 {
+                        stroke: #4eff00;
+                    }
+
+                    .cls-4 {
+                        stroke: #ff8b0e;
+                    }
+
+                    .text-style {
+                        font-family: Open Sans;
+                        font-size: 30px;
+                        fill: black;
+                    }
+                </style>
+                <linearGradient id="linear-gradient" x1="127" y1="575.047" x2="290.594" y2="575.047" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#ff0c0c"/>
+                    <stop offset="0.526" stop-color="#ff0c0c"/>
+                    <stop offset="1" stop-color="#ffde00"/>
+                </linearGradient>
+                <linearGradient id="linear-gradient-2" x1="127" y1="842.953" x2="1763" y2="842.953" gradientUnits="userSpaceOnUse">
+                    <stop offset="0" stop-color="#ff0c0c"/>
+                    <stop offset="0.48" stop-color="#ffde00"/>
+                    <stop offset="1" stop-color="#4eff00"/>
+                </linearGradient>
+            </defs>
+            
+            <!-- Линии диаграммы -->
+            <path id="Линия_1" data-name="Линия 1" class="cls-1" d="M127,584.1V566H290.6v18.1H127Z" stroke-linecap="round"/>
+            <path id="Линия_1_копия" data-name="Линия 1 копия" class="cls-2" d="M127,852V833.9H1763V852H127Z"/>
+            <circle id="Эллипс_1" data-name="Эллипс 1" class="cls-3" cx="1785" cy="843" r="25"/>
+            <circle id="Эллипс_1_копия" data-name="Эллипс 1 копия" class="cls-4" cx="320" cy="575" r="25"/>
+
+            <!-- Текст под линиями -->
+            <text x="150" y="640" class="text-style">Скорость 5G: 10 Гбит/с</text> <!-- Под первой линией -->
+  <text x="150" y="885" class="text-style">Скорость 6G: 1 Тбит/с</text> <!-- Под второй линией -->
+
+ <!-- Добавляем изображение спидометра -->
+  <image x="490" y="605" width="50" height="50" xlink:href="https://static.wixstatic.com/media/a46fdc_237e9544f81b402689a9303b7be7f4ac~mv2.png" />
+  <image x="490" y="850" width="50" height="50" xlink:href="https://static.wixstatic.com/media/a46fdc_237e9544f81b402689a9303b7be7f4ac~mv2.png" />
+        </svg>
+    </div>
+</div>
+<h1 style="margin-right: 2%;margin-top: 7%;font-size: 36pt; text-align: right;" id="meet6g">Безопасность 6G.</h1>
+<div class="white-background-text-right"> 
+    <div class="image-safety-container">
+    <img src="https://static.wixstatic.com/media/a46fdc_ed6c877d574f4bceb68e84b6e05a23ff~mv2.png">
+    </div>
+    <p>
+        В технологии 6G<span style="font-weight: bold;"> безопасность и доверие</span> занимают важное место. Эта сеть нового поколения не только увеличивает скорость связи, но и внедряет передовые методы защиты данных.
+        С помощью искусственного интеллекта 6G будет автоматически обнаруживать и предотвращать угрозы, обеспечивая защиту пользовательской информации. Кроме того, новые механизмы, такие как блокчейн, позволят сохранить конфиденциальность и доверие, обеспечивая прозрачность и защиту данных.
+        6G движется к более безопасному цифровому будущему, где технологии защищают интересы пользователей.
+        <br><br>Подробнее на <a href="https://www.bell-labs.com/research-innovation/what-is-6g/6g-technologies/security-and-trust#gref" style="color: rgb(0, 0, 0); font-size: 16,5pt;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Nokia_2023.svg/255px-Nokia_2023.svg.png" alt="Ericsson Logo" style="width: 50px; height: 10px; margin-left: 5px; vertical-align: middle; border: none; border-radius: 0;"></a>
+    </p>   
+</div>
+<h1 style="position: relative;;font-size: 36pt;text-align: center;margin-top: 12%;">В конце концов...</h1>
+<div class="text-card-center">
+    <p>
+        6G — это будущее беспроводной связи, которое откроет новые горизонты для инноваций и технологий. С невероятной скоростью передачи данных до 1 Тбит/с и минимальной задержкой, 6G создаст основу для умных городов, автономного транспорта, робототехники и сверхреалистичных виртуальных миров. Эта технология не просто улучшит возможности подключения, но и обеспечит более тесное взаимодействие между цифровыми и физическими мирами, расширяя границы того, что возможно в здравоохранении, промышленности и повседневной жизни.
+    </p>
+</div>
+<div class="horizontal-card-new">
+    <img src="https://static.wixstatic.com/media/a46fdc_739c53f0e8ee4ebf9aba6db9d0cb99a1~mv2.webp" alt="Описание изображения" class="card-image-new">
+    <div class="card-text-new">
+        <h1>
+            Исследуйте более подробно как работает 6G
+        </h1>
+        <p>Перейти на страницу Подробнее</p>
+    </div>
+</div>
+
+<footer class="simple-footer">
+    <div class="footer-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ericsson_logo.svg/768px-Ericsson_logo.svg.png" alt="Ericsson" class="footer-logo">
+        <img src="https://static.vecteezy.com/system/resources/previews/021/608/790/non_2x/chatgpt-logo-chat-gpt-icon-on-black-background-free-vector.jpg" alt="OpenAI" class="footer-logo" style="border-radius: 15px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Nokia_2023.svg/255px-Nokia_2023.svg.png" alt="Nokia" class="footer-logo" style="width: 150px; height: 50px;">
+    </div>
+    <div class="footer-bottom">
+        <p>© 2024 Pervomay Ltd. Данный сайт разработан с использованием ИИ технологий. Информация, представленная на данном сайте, взята с информационных порталов Ericsson и Nokia. </p>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
