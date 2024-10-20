@@ -1,0 +1,462 @@
+body{
+    font-family: 'Open Sans';
+   font-weight: medium;
+   margin: 0;
+ padding: 0;
+ height: 100%;
+   }
+.menu { 
+   margin: 0;
+   width: 430px; /* Уменьшено на 20% от 520px */
+   height: 58.4px; /* Уменьшено на 20% от 73px */
+   background: rgba( 255, 255, 255, 0.25 ); /* Светлый фон для неоморфизма */
+   border-radius: 80px; /* Закругление меньше, сохраняя пропорции */
+   display: flex;
+   justify-content: center;
+   position: fixed;
+   z-index: 1000;
+   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+   backdrop-filter: blur( 4px );
+-webkit-backdrop-filter: blur( 4px );
+   left: 20px; /* Перемещаем меню в левую часть экрана */
+   top: 20px;
+   overflow: hidden; /* Добавляем ограничение выхода элементов */
+}
+
+
+a {
+   font-family: 'Open Sans';
+   font-weight: bold;
+   font-size: 12pt; /* Уменьшено на 20% от 16pt */
+   color: #000000; /* Чёрный текст */
+}
+
+ul {
+   display: block;
+   padding: 8px; /* Уменьшено на 20% от 10px */
+   text-decoration: none;
+   margin: 0 17.6px; /* Уменьшено на 20% от 22px */
+   z-index: 1;
+   margin-top: 9.6px; /* Уменьшено на 20% от 12px */
+   cursor: pointer;
+   color: black; /* Чёрный текст */
+   border-radius: 20px;
+   /* Убрал тени */
+}
+
+.Border {
+   position: absolute;
+   left: 44; /* Слева */
+   bottom: 5px;
+   width: 80px; /* Уменьшено на 20% от 150px */
+   height: 50.4px; /* Уменьшено на 20% от 73px */
+   background-color: #f1f1f1; /* Фон под border для неоморфизма */
+   box-shadow:  -29px 29px 69px #797979,
+   29px -29px 69px #ffffff;
+   border-radius: 40px;
+   transition: transform 0.3s ease-in-out;
+}
+
+ul.active ~ .Border {
+ transform: translateX(0);
+}
+.animate {
+ transition: all 0.3s ease-in-out;
+}
+.LangSel {
+   position: absolute; /* Позволяет разместить элемент независимо от потока документа */
+   right: 20px; /* Отступ от правого края страницы */
+   top: 39.2px; /* Высота, на которой будет находиться элемент (так же, как у меню) */
+   padding: 10px 15px; /* Отступы для элемента */
+   color: black; /* Черный текст */
+   border-radius: 5px; /* Закругленные углы (можно убрать, если не нужно) */
+   cursor: pointer; /* Курсор в виде руки */
+   box-shadow: none; /* Убираем тени */
+   font-family: 'Roboto';
+   font-weight: bold;
+   z-index: 1;
+}
+.content {
+   display: flex;
+   justify-content: center; /* Центрирование по горизонтали */
+   margin-top: 10%; /* Отступ сверху для разделения с меню */
+   position: relative; /* Относительное позиционирование для контейнера */
+}
+
+/* Контейнер для картинки с текстом */
+.image-container {
+ position: relative;
+ width: 100%;
+ height: auto;
+ 
+}
+
+/* Само изображение */
+.image-container img {
+ width: 100%;
+ height: auto;
+ display: block;
+}
+
+.center-text {
+   position: absolute; /* Теперь текст будет абсолютно позиционирован */
+   top: 30%; /* Центрируем по вертикали */
+   left: 50%; /* Центрируем по горизонтали */
+   width: 96%;
+   transform: translate(-50%, -50%); /* Перемещение текста для точного центрирования */
+   text-align: center; /* Центрирование текста */
+   font-size: 46pt; /* Размер текста */
+   color: #ffffff; /* Цвет текста */
+   padding: 5px; /* Отступы для текста */
+   border-radius: 5px; /* Закругленные углы */
+   z-index: 1; /* Убедитесь, что текст поверх изображения */
+}
+
+.center-image {
+   max-width: 100%; /* Ограничиваем ширину изображения */
+   height: auto; /* Сохраняем пропорции */
+   margin-bottom: 15px; /* Отступ снизу от изображения */
+   position: relative; /* Относительное позиционирование для изображения */
+   z-index: 0; /* Убедитесь, что изображение под текстом */
+}
+.advantages {
+   margin-top: 3%;
+   display: flex;
+   justify-content: space-between; /* Равномерное распределение карточек */
+   gap: 20px; /* Увеличиваем отступы между карточками */
+   margin-left:1%;
+margin-right: 1%;
+}
+
+.card1 {
+   background: url('https://static.wixstatic.com/media/a46fdc_ab144b44d9c84e8cbf1aeefd97d4a906~mv2.png') no-repeat center center;
+   background-size: cover;
+}
+
+.card2 {
+   background: url('https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iasp7ZQzcrZc/v2/-1x-1.jpg') no-repeat center center;
+   background-size: cover;
+}
+
+.card3 {
+   background: url('https://static.wixstatic.com/media/a46fdc_c3584752e7a146e4b7a006dd14ac2528~mv2.png') no-repeat center center;
+   background-size: cover;
+}
+
+.card4 {
+   background: url('https://static.wixstatic.com/media/a46fdc_ed6c877d574f4bceb68e84b6e05a23ff~mv2.png') no-repeat center center;
+   background-size: 70%;
+}
+
+.card {
+   position: relative;
+   cursor: pointer;
+   border-radius: 20px;
+   width: 22%;
+   height: 400px;
+   text-align: center;
+   overflow: hidden;
+}
+
+.card-text {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   font-size: 24px;
+   font-weight: bold;
+   z-index: 1;
+}
+
+.add-icon {
+   position: absolute;
+   bottom: 20px;
+   right: 20px;
+   background: rgba(255, 255, 255, 0.8);
+   border-radius: 50%;
+   width: 50px;
+   height: 50px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 24pt;
+   cursor: pointer;
+   z-index: 1;
+}
+.card:hover{
+   transition: all 0.6s ease;
+   transform: translate(-1%, -1%) scale(1.02);
+   transform-origin: center;
+}
+
+/* Анимация для картинки при скролле */
+.shrunk {
+ width: 90%; /* Уменьшение ширины */
+ border-radius: 15px; /* Скругленные углы */
+ transition: all 0.3s ease-in-out; /* Плавный переход */
+}
+
+#scroll-image {
+ width: 100%; /* Стартовое состояние */
+ border-radius: 0px;
+ transition: all 0.3s ease-in-out; /* Плавный переход для начального состояния */
+}
+.card-text {
+   position: absolute; /* Текст находится поверх изображения */
+   top: 1%; /* Центрирование по вертикали */
+   left: 50%; /* Центрирование по горизонтали */
+   transform: translate(-50%, -50%); /* Точная центровка текста */
+   color: white; /* Белый цвет текста для контраста */
+   font-size: 24px; /* Размер текста */
+   font-weight: bold;
+   z-index: 1; /* Текст поверх изображения */
+}
+.modal-card {
+   display: none; /* Скрыто по умолчанию */
+   position: fixed; /* Зафиксировано относительно окна */
+   top: 20%; /* Центрирование по вертикали */
+   left: 50%; /* Центрирование по горизонтали */
+   transform: translate(-50%, -50%); /* Центрируем точно */
+   width: 80%; /* Ширина модальной карточки */
+   max-width: 1500px; /* Максимальная ширина */
+   min-height: 20vh;
+   background: #f1f1f1; /* Фон карточки */
+   border-radius: 20px; /* Закругленные углы */
+   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Тень */
+   z-index: 1001; /* Поверх всех элементов */
+}
+
+.modal-content {
+   padding: 20px; /* Отступы внутри модальной карточки */
+}
+
+.close {
+   position: absolute; /* Позиционируем крестик */
+   top: 10px; /* Отступ от верхней грани */
+   right: 10px; /* Отступ от правой грани */
+   font-size: 24px; /* Размер шрифта для крестика */
+   cursor: pointer; /* Курсор в виде руки */
+}
+.modal-background {
+   position: fixed; /* Зафиксировано относительно окна */
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+   backdrop-filter: blur(5px); /* Размытие фона */
+   z-index: 1000; /* Под модальной карточкой */
+   display: none; /* Скрыто по умолчанию */
+}
+
+.centered-text {
+    width: 60%; /* Занимает 80% ширины */
+    margin: 1% auto; /* Центрирует текст с отступами сверху и снизу */
+    text-align:left; /* Выравнивание текста по центру */
+    font-size: 16pt; /* Размер шрифта */
+    color: #000000; /* Цвет текста */
+    background-color: rgba(250, 248, 248, 0.8); /* Светло-серый фон с прозрачностью */
+    padding: 15px; /* Отступы внутри блока */
+    border-radius: 10px; /* Закругленные углы подложки */
+}
+.left-aligned-text {
+    margin-top: 5%;
+    display: flex; /* Использует Flexbox для выравнивания */
+    align-items: center; /* Выравнивание по вертикали по центру */
+    background-color: #000000; /* Черный фон */
+    padding: 20px; /* Внутренние отступы для создания пространства вокруг содержимого */
+   
+}
+
+.left-aligned-text img {
+    max-width: 40%; /* Ширина изображения */
+    height: auto; /* Сохраняет пропорции изображения */
+    margin-left: 20px; /* Отступ между текстом и изображением */
+   border-radius: 15px;
+}
+
+.left-aligned-text p {
+    width: 60%; /* Ширина текста */
+    font-size: 16pt; /* Размер шрифта */
+    color: #ffffff; /* Цвет текста */
+}
+.centered-image {
+    display: block; /* Позволяет изображению занимать всю ширину */
+    margin: 20px auto; /* Отступ сверху и снизу, центрирование по горизонтали */
+    width: 80%; /* Ширина изображения */
+    max-width: 1600px; /* Максимальная ширина для контроля размера на больших экранах */
+    transition: all 0.6s ease; 
+    border-radius: 15px; /* Закругление углов изображения */
+    cursor: pointer;
+
+}
+.centered-image:hover{
+   
+    transform:  scale(1.02);
+  
+}
+.black-background-block {
+    background-color: #000; /* Черный фон */
+    padding: 20px; /* Внутренние отступы */
+    position: relative;
+}
+.overlay-title {
+    position: absolute; /* Абсолютное позиционирование для заголовка */
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translate(-50%, -50%); /* Сдвиг для точного центрирования */
+    color: white; /* Цвет текста */
+    text-align: center; /* Выравнивание текста по центру */
+    font-size: 2rem; /* Размер шрифта, можно изменять */
+    opacity: 0;
+    transition: opacity 3.5s ease-out;
+}
+.fade-in {
+    opacity: 1;
+}
+.centered-text-black{
+    background-color: #000; /* Черный фон */
+    padding: 30px; /* Внутренние отступы */
+    display: block; /* Позволяет изображению занимать всю ширину */
+    margin: 0 auto; /* Отступ сверху и снизу, центрирование по горизонтали */
+    max-width: 1600px; /* Максимальная ширина для контроля размера на больших экранах */
+    color: white;
+    font-size: 16pt;
+}
+.white-background-text {
+   margin-top: 2%;
+   display: flex; /* Используем Flexbox для выравнивания */
+   align-items: center; /* Выравнивание по вертикали по центру */
+   background-color: #ffffff; /* Белый фон */
+   padding: 20px; /* Внутренние отступы для создания пространства вокруг содержимого */
+   border-radius: 15px; /* Скругление углов блока */
+ 
+}
+
+.white-background-text img {
+   max-width: 40%; /* Ширина изображения */
+   height: auto; /* Сохраняет пропорции изображения */
+   margin-left: 20px; /* Отступ между текстом и изображением */
+   border-radius: 15px; /* Скругленные края изображения */
+}
+
+.white-background-text p {
+   width: 50%; /* Ширина текста */
+   font-size: 16pt; /* Размер шрифта */
+   color: #000000; /* Черный цвет текста для контраста с белым фоном */
+}
+.diagram-container {
+   width: 50%; /* Ширина для диаграммы */
+   background-color: #f9f9f9; /* Цвет фона карточки */
+   padding: 10px; /* Внутренние отступы для создания пространства вокруг изображения */
+   border-radius: 15px; /* Скругление углов карточки */
+   margin-left: 10%; /* Отступ между изображением и текстом */
+   display: flex; /* Используем Flexbox для центрирования */
+   justify-content: center; /* Центрируем содержимое по горизонтали */
+   align-items: center; /* Центрируем содержимое по вертикали */
+   box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+.white-background-text-right {
+   margin-top: 2%;
+   display: flex; /* Используем Flexbox для выравнивания */
+   align-items: center; /* Выравнивание по вертикали по центру */
+   justify-content: flex-end; /* Выравнивание содержимого по правому краю */
+   background-color: #ffffff; /* Белый фон */
+   padding: 20px; /* Внутренние отступы для создания пространства вокруг содержимого */
+   border-radius: 15px; /* Скругление углов блока */
+}
+
+.white-background-text-right img {
+   max-width: 40%; /* Максимальная ширина изображения */
+    height: auto; /* Сохраняет пропорции изображения */
+    border-radius: 15px; /* Скругленные края изображения */
+}
+
+.white-background-text-right p {
+   width: 50%; /* Ширина текста */
+   font-size: 16pt; /* Размер шрифта */
+   color: #000000; /* Черный цвет текста для контраста с белым фоном */
+   text-align: right; /* Выравнивание текста по правому краю внутри параграфа */
+}
+.image-safety-container{
+   background-color: #f9f9f9; /* Цвет фона карточки */
+   padding: 50px; /* Внутренние отступы для создания пространства вокруг изображения */
+   border-radius: 15px; /* Скругление углов карточки */
+   margin-right: 10%; /* Отступ между изображением и текстом */
+   display: flex; /* Используем Flexbox для центрирования */
+   justify-content: center; /* Центрируем содержимое по горизонтали */
+   align-items: center; /* Центрируем содержимое по вертикали */
+   box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+}
+.text-card-center {
+   width: 80%; /* Ширина карточки */
+   margin: 20px auto; /* Центрирование и отступ сверху */
+   padding: 20px; /* Внутренние отступы */
+   background-color: #ffffff; /* Светлый фон для карточки */
+   border-radius: 15px; /* Скругленные углы */
+  
+   
+}
+
+.text-card-center p {
+font-size: 16pt;
+   text-align: center; /* Выравнивание текста по ширине */
+}
+.simple-footer {
+   background-color: #232323;
+   padding: 20px 0;
+   text-align: center;
+   color: white;
+   margin-top: 150px;
+}
+
+.footer-logos {
+   display: flex;
+   justify-content: center;
+   gap: 70px; /* Расстояние между логотипами */
+   margin-bottom: 15px;
+}
+
+.footer-logo {
+   width: 80px;
+   height: auto;
+}
+
+.footer-bottom p {
+   font-size: 14px;
+   color: #ccc;
+   margin: 0;
+}
+.horizontal-card-new {
+   display: flex; /* Flexbox для горизонтального расположения */
+   align-items: center; /* Выравнивание по вертикали */
+   width: 80%; /* Ширина карточки */
+   margin: 30px auto; /* Центрирование и отступ сверху */
+   background-color: #eeeded; /* Цвет фона карточки */
+   border-radius: 15px; /* Скругленные углы */
+   overflow: hidden; /* Скрываем содержимое, выходящее за границы */
+   height: 350px; /* Увеличенная высота карточки */
+   transition: all 0.6s ease; 
+   cursor: pointer;
+   
+}
+.horizontal-card-new:hover{
+   
+   transform:  scale(1.02);
+ 
+}
+
+.card-image-new {
+   width: 50%; /* Изображение занимает 30% карточки */
+   height: 100%;
+}
+
+.card-text-new {
+   width: 70%; /* Текст занимает 70% карточки */
+   padding: 20px; /* Отступы для текста */
+   font-size: 16px;
+   color: #333;
+}
