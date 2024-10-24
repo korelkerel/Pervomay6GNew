@@ -1,0 +1,56 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6G Features</title>
+   <link rel="stylesheet" href="styles.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <div class="menu-container">
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+        <div class="menu">
+            <ul id="menu-main" onclick="moveBorder(this)" data-url="MainPage.html"><a href="MainPage.html">6G</a></ul>
+            <ul id="menu-details" data-url="about.html" onclick="moveBorder(this)"><a href="about.html">Подробнее</a></ul>
+            <ul id="menu-questions" data-url="chatbot.html" onclick="moveBorder(this)"><a href="chatbot.html">Вопросы?</a></ul>
+            <div class="Border"></div>  
+        </div>
+    </div>  
+<!--<div class="LangSel" onclick="toggleLanguage()">RU</div>-->
+<div class="error-container">
+<div class="error">
+    <div class="error__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none"><path fill="#393a37" d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z"></path></svg>
+    </div>
+    <div class="error__title">Чат-бот не работает, так как Влад Янев его не сделал. Пожалуйста, подождите.</div>
+    <div class="error__close"><svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20"><path fill="#393a37" d="m15.8333 5.34166-1.175-1.175-4.6583 4.65834-4.65833-4.65834-1.175 1.175 4.65833 4.65834-4.65833 4.6583 1.175 1.175 4.65833-4.6583 4.6583 4.6583 1.175-1.175-4.6583-4.6583z"></path></svg></div>
+</div>
+</div>
+<div class="page-container">
+    <div class="container-bot">
+        <div class="question-box-bot">
+            <p>Если у Вас остались вопросы по поводу 6G, задайте свой вопрос здесь. В этой карточке будет какой нибудь текст еще</p>
+        </div>
+        <div class="chat-box-bot">
+            <input type="text" placeholder="Привет! Задай свой вопрос здесь" class="message-input">
+            <button class="send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2 160 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-306.7L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"/></svg>
+            </button>
+        </div>
+    </div>
+</div>
+<footer class="simple-footer">
+    <!-- <div class="footer-logos">
+       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Ericsson_logo.svg/768px-Ericsson_logo.svg.png" alt="Ericsson" class="footer-logo">
+         <img src="https://static.vecteezy.com/system/resources/previews/021/608/790/non_2x/chatgpt-logo-chat-gpt-icon-on-black-background-free-vector.jpg" alt="OpenAI" class="footer-logo" style="border-radius: 15px;">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Nokia_2023.svg/255px-Nokia_2023.svg.png" alt="Nokia" class="footer-logo" style="width: 150px; height: 50px;">
+     </div>-->  
+     <div class="footer-bottom">
+         <p>© 2024 Pervomay Ltd. Данный сайт разработан с использованием ИИ технологий. Информация, представленная на данном сайте, взята с информационных порталов Ericsson и Nokia. </p>
+     </div>
+ </footer>
+  <script src="scripts.js"></script>
+  </body>
