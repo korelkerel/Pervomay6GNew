@@ -13,7 +13,7 @@
     <div class="menu-container">
         <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
         <div class="menu">
-            <ul id="menu-main" onclick="moveBorder(this)" data-url="MainPage.html"><a href="MainPage.html">6G</a></ul>
+            <ul id="menu-main" onclick="moveBorder(this)" data-url="MainPage.html"><a href="index.html">6G</a></ul>
             <ul id="menu-details" data-url="about.html" onclick="moveBorder(this)"><a href="about.html">Подробнее</a></ul>
             <ul id="menu-questions" data-url="chatbot.html" onclick="moveBorder(this)"><a href="chatbot.html">Вопросы?</a></ul>
             <div class="Border"></div>  
