@@ -5,7 +5,13 @@ body{
  padding: 0;
  height: 100%;
    }
-.menu { 
+/* Основной стиль меню */
+.menu-container {
+   position: relative;
+   z-index: 1000;
+}
+
+.menu {
    margin: 0;
    width: 430px; /* Уменьшено на 20% от 520px */
    height: 58.4px; /* Уменьшено на 20% от 73px */
@@ -23,15 +29,21 @@ body{
    overflow: hidden; /* Добавляем ограничение выхода элементов */
 }
 
-
-a {
-   font-family: 'Open Sans';
-   font-weight: bold;
-   font-size: 12pt; /* Уменьшено на 20% от 16pt */
-   color: #000000; /* Чёрный текст */
+/* Скрываем гамбургер по умолчанию */
+.hamburger {
+   display: none;
+   font-size: 30px;
+   position: fixed;
+   top: 20px;
+   left: 20px;
+   background: none;
+   border: none;
+   cursor: pointer;
+   z-index: 1100;
 }
 
-ul {
+/* Стиль для ссылок в меню */
+.menu ul {
    display: block;
    padding: 8px; /* Уменьшено на 20% от 10px */
    text-decoration: none;
@@ -44,6 +56,12 @@ ul {
    /* Убрал тени */
 }
 
+.menu ul a {
+   color: #000;
+   text-decoration: none;
+}
+
+/* Плавающая обводка */
 .Border {
    position: absolute;
    left: 44; /* Слева */
@@ -56,13 +74,13 @@ ul {
    border-radius: 40px;
    transition: transform 0.3s ease-in-out;
 }
-
 ul.active ~ .Border {
- transform: translateX(0);
-}
-.animate {
- transition: all 0.3s ease-in-out;
-}
+   transform: translateX(0);
+  }
+  .animate {
+   transition: all 0.3s ease-in-out;
+  }
+
 .LangSel {
    position: absolute; /* Позволяет разместить элемент независимо от потока документа */
    right: 20px; /* Отступ от правого края страницы */
@@ -76,6 +94,7 @@ ul.active ~ .Border {
    font-weight: bold;
    z-index: 1;
 }
+
 .content {
    display: flex;
    justify-content: center; /* Центрирование по горизонтали */
@@ -291,15 +310,22 @@ margin-right: 1%;
     cursor: pointer;
 
 }
+.centered-image-new {
+    display: block; /* Позволяет изображению занимать всю ширину */
+    margin: 20px auto; /* Отступ сверху и снизу, центрирование по горизонтали */
+    width: 80%; /* Ширина изображения */
+    max-width: 1600px; /* Максимальная ширина для контроля размера на больших экранах */
+    border-radius: 15px; /* Закругление углов изображения */
+}
 .centered-image:hover{
    
     transform:  scale(1.02);
   
 }
 .black-background-block {
-    background-color: #000; /* Черный фон */
-    padding: 20px; /* Внутренние отступы */
-    position: relative;
+   background-color: #000; /* Черный фон */
+   padding: 20px; /* Внутренние отступы */
+   position: relative;
 }
 .overlay-title {
     position: absolute; /* Абсолютное позиционирование для заголовка */
@@ -310,7 +336,7 @@ margin-right: 1%;
     text-align: center; /* Выравнивание текста по центру */
     font-size: 2rem; /* Размер шрифта, можно изменять */
     opacity: 0;
-    transition: opacity 3.5s ease-out;
+    transition: opacity 1.5s ease-out;
 }
 .fade-in {
     opacity: 1;
@@ -443,6 +469,7 @@ font-size: 16pt;
    cursor: pointer;
    
 }
+
 .horizontal-card-new:hover{
    
    transform:  scale(1.02);
@@ -457,6 +484,224 @@ font-size: 16pt;
 .card-text-new {
    width: 70%; /* Текст занимает 70% карточки */
    padding: 20px; /* Отступы для текста */
+   font-size: 16px;
+   color: #333;
+}
+/* Основной контейнер */
+.page-container {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   height: 100vh; /* Высота экрана */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  /* background-color: #f2f2f2;*/
+}
+
+.container-bot {
+   margin-top: 60px; /* Увеличен отступ для меню */
+   display: flex;
+   gap: 30px; /* Увеличен отступ между элементами */
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   flex-wrap: wrap; /* Позволяет переносить элементы на новую строку при нехватке места */
+}
+
+.chat-box-bot {
+   border-radius: 15px;
+   padding: 20px;
+   transition: all 0.6s ease; /* Время и тип перехода */
+   background: #e0e0e0;
+   box-shadow: inset 10px 10px 35px #b5b5b5,
+               inset -10px -10px 35px #ffffff;
+   width: 650px; /* Увеличена ширина */
+   height: 300px; /* Увеличена высота */
+}
+
+/* Наведение курсора */
+.chat-box-bot:hover {
+   box-shadow: inset 10px 10px 36px #8f8f8f,
+               inset -10px -10px 36px #ffffff;
+}
+
+.question-box-bot {
+   border-radius: 15px;
+   padding: 20px;
+   background: #e0e0e0;
+   box-shadow: 10px 10px 34px #969696,
+               -10px -10px 34px #ffffff;
+   width: 300px; /* Увеличена ширина */
+   height: 300px; /* Увеличена высота */
+}
+
+.chat-box-bot {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   position: relative;
+}
+
+.chat-box-bot input {
+   display: flex;
+   width: calc(100% - 39px); /* Уменьшение ширины для кнопки */
+   padding: 11px;
+   border-radius: 20px;
+   border: none;
+   justify-content: space-between;
+   outline: none;
+   position: absolute;
+   bottom: 20px;
+   left: 20px;
+}
+
+.chat-box-bot button {
+   background-color: #f3e0d2;
+   border: none;
+   border-radius: 50%;
+   width: 35px; /* Увеличена ширина */
+   height: 35px; /* Увеличена высота */
+   cursor: pointer;
+   position: absolute;
+   bottom: 21px;
+   right: 20px;  
+    display: inline-block;
+}
+
+.send-icon {
+
+   width: 30px; /* Увеличена ширина */
+   height: 31px; /* Увеличена высота */
+
+}
+.error-container {
+   display: flex; /* Используем Flexbox для контейнера */
+   justify-content: center; /* Центрируем по горизонтали */
+   margin-top: 20px; /* Отступ сверху для визуального отделения */
+}
+
+.error {
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 320px;
+    position: absolute;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: #EF665B;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px -3px #111;
+    margin-top: 7%;
+ }
+ 
+ .error__icon {
+   width: 20px;
+   height: 20px;
+   transform: translateY(-2px);
+   margin-right: 8px;
+ }
+ 
+ .error__icon path {
+   fill: #fff;
+ }
+ 
+ .error__title {
+   font-weight: 500;
+   font-size: 14px;
+   color: #fff;
+ }
+ 
+ .error__close {
+   width: 20px;
+   height: 20px;
+   cursor: pointer;
+   margin-left: auto;
+ }
+ 
+ .error__close path {
+   fill: #fff;
+ }
+
+
+/* Правила для мобильных устройств */
+@media (max-width: 768px) {
+   .text-card-center {
+       flex-direction: column; /* Переключаем на вертикальное расположение на маленьких экранах */
+   }
+}
+/* Мобильная версия */
+@media (max-width: 768px) {
+   .menu {
+       display: none; /* Скрываем меню на мобиле */
+       flex-direction: column;
+       width: 100%;
+       position: fixed;
+       top: 0;
+       left: 0;
+       background-color: rgba(255, 255, 255, 0.9); /* Плотный фон */
+       height: 100vh; /* Меню на весь экран */
+       justify-content: center;
+       align-items: center;
+    border-radius: 0;
+   } 
+   .hamburger {
+       display: block; /* Показываем кнопку */
+     
+   }
+
+   .menu.active {
+       display: flex; /* Показываем меню при клике */
+   }
+   .Border{
+      display: none;
+   }
+}
+@media (max-width: 768px) {
+   .LangSel {
+     right: 10px; /* Уменьшаем отступы */
+     top: 20px;
+     padding: 5px 10px; /* Меньшие отступы */
+     font-size: 14px; /* Уменьшаем размер текста */
+   }
+ }
+ @media (max-width: 768px) {
+   .content {
+     flex-direction: column; /* Перестроение колонкой */
+     margin-top: 5%;
+   }
+   
+   .image-container img {
+     width: 100%; /* Делаем изображение на всю ширину */
+   }
+   
+   .center-text {
+     font-size: 24pt; /* Уменьшаем текст для мобильных */
+   }
+   .centered-text{
+      width: 80%;
+      font-size: 12pt;
+   }
+   .container-bot {
+      flex-direction: column; /* Вертикальное расположение для мобильных устройств */
+      align-items: center; /* Центрирование элементов */
+   }
+
+   .question-box-bot {
+      order: 2; /* Устанавливаем порядок для отображения выше */
+      width: 90%; /* Уменьшена ширина для мобильной версии */
+      height: auto; /* Автоматическая высота */
+   }
+
+   .chat-box-bot {
+      order: 1; /* Устанавливаем порядок для отображения ниже */
+      width: 90%; /* Уменьшена ширина для мобильной версии */
+      height: 300px; /* Фиксированная высота */
+      min-height: 300px; /* Минимальная высота */
+   }
+}
+  
    font-size: 16px;
    color: #333;
 }
