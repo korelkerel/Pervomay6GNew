@@ -8,12 +8,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <body>
-<div class="menu">
-    <ul onclick="moveBorder(this)" class="active" id="menu-main"><a>6G</a></ul>
-    <ul class="details" id="menu-details" onclick="moveBorder(this)"><a>Подробнее</a></ul>
-    <ul class="questions" id="menu-questions" onclick="moveBorder(this)"><a>Вопросы?</a></ul>
-    <div class="Border"></div>  
-</div> 
+<div class="menu-container">
+        <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+        <div class="menu">
+            <ul id="menu-main" onclick="moveBorder(this)" data-url="MainPage.html"><a href="MainPage.html">6G</a></ul>
+            <ul id="menu-details" data-url="about.html" onclick="moveBorder(this)"><a href="about.html">Подробнее</a></ul>
+            <ul id="menu-questions" data-url="chatbot.html" onclick="moveBorder(this)"><a href="chatbot.html">Вопросы?</a></ul>
+            <div class="Border"></div>  
+        </div>
+    </div>  
+<!--<div class="LangSel" onclick="toggleLanguage()">RU</div>-->
 <div class="LangSel" onclick="toggleLanguage()">RU</div>
 <div class="content">
     <div class="image-container">
