@@ -124,39 +124,6 @@ function openCard(element) {
   modal.style.display = 'block';
   modalBackground.style.display = 'block';
 }
-
-document.getElementById('sendBtn').addEventListener('click', function() {
-  const messageInput = document.getElementById('messageInput');
-  const chatContent = document.getElementById('chatContent');
-  
-  const userMessageText = messageInput.value;
-  if (userMessageText.trim() !== '') {
-    // Создаем элемент для сообщения пользователя
-    const userMessage = document.createElement('div');
-    userMessage.classList.add('chat-message', 'user-message');
-    userMessage.innerText = userMessageText;
-    
-    // Добавляем сообщение пользователя в чат
-    chatContent.appendChild(userMessage);
-    
-    // Очищаем поле ввода
-    messageInput.value = '';
-
-    // Генерируем ответ чат-бота через небольшую задержку
-    setTimeout(function() {
-      const botMessage = document.createElement('div');
-      botMessage.classList.add('chat-message', 'bot-message');
-      botMessage.innerText = 'Бот еще не работает.';
-      
-      // Добавляем сообщение от бота в чат
-      chatContent.appendChild(botMessage);
-      
-      // Скроллим чат вниз
-      chatContent.scrollTop = chatContent.scrollHeight;
-    }, 1000); // Задержка 1 секунда
-  }
-});
-
 function closeCard() {
   const modal = document.getElementById('modal-card');
   const modalBackground = document.getElementById('modal-background');
@@ -195,4 +162,34 @@ function toggleMenu() {
       }
     }
   }
+document.getElementById('sendBtn').addEventListener('click', function() {
+  const messageInput = document.getElementById('messageInput');
+  const chatContent = document.getElementById('chatContent');
+  
+  const userMessageText = messageInput.value;
+  if (userMessageText.trim() !== '') {
+    // Создаем элемент для сообщения пользователя
+    const userMessage = document.createElement('div');
+    userMessage.classList.add('chat-message', 'user-message');
+    userMessage.innerText = userMessageText;
+    
+    // Добавляем сообщение пользователя в чат
+    chatContent.appendChild(userMessage);
+    
+    // Очищаем поле ввода
+    messageInput.value = '';
 
+    // Генерируем ответ чат-бота через небольшую задержку
+    setTimeout(function() {
+      const botMessage = document.createElement('div');
+      botMessage.classList.add('chat-message', 'bot-message');
+      botMessage.innerText = 'Бот еще не работает.';
+      
+      // Добавляем сообщение от бота в чат
+      chatContent.appendChild(botMessage);
+      
+      // Скроллим чат вниз
+      chatContent.scrollTop = chatContent.scrollHeight;
+    }, 1000); // Задержка 1 секунда
+  }
+});
