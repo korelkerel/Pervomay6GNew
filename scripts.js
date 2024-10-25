@@ -1,4 +1,3 @@
-
 function moveBorder(el) {
   var border = document.querySelector('.Border');
   var minWidth = 70; // минимальная ширина Border
@@ -125,6 +124,7 @@ function openCard(element) {
   modal.style.display = 'block';
   modalBackground.style.display = 'block';
 }
+
 document.getElementById('sendBtn').addEventListener('click', function() {
   const messageInput = document.getElementById('messageInput');
   const chatContent = document.getElementById('chatContent');
@@ -156,6 +156,7 @@ document.getElementById('sendBtn').addEventListener('click', function() {
     }, 1000); // Задержка 1 секунда
   }
 });
+
 function closeCard() {
   const modal = document.getElementById('modal-card');
   const modalBackground = document.getElementById('modal-background');
@@ -194,6 +195,4 @@ function toggleMenu() {
       }
     }
   }
-
-
 
