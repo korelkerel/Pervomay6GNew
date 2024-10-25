@@ -508,7 +508,14 @@ font-size: 16pt;
    flex-direction: row;
    flex-wrap: wrap; /* Позволяет переносить элементы на новую строку при нехватке места */
 }
-
+.chat-content {
+   flex-grow: 1;
+   overflow-y: auto; /* Добавляет вертикальную прокрутку */
+   padding: 10px;
+   margin-bottom: 60px; /* Отступ для поля ввода */
+   max-height: 100%; /* Ограничение по высоте для содержимого чата */
+   box-sizing: border-box;
+ }
 .chat-box-bot {
    border-radius: 15px;
    padding: 20px;
@@ -575,6 +582,24 @@ font-size: 16pt;
    height: 31px; /* Увеличена высота */
 
 }
+.chat-message {
+   padding: 0.7em; /* Увеличен отступ для содержимого */
+  margin: 2em 0;  /* Увеличен отступ между сообщениями в относительных единицах */
+   border-radius: 20px;
+   background-color: #ffffff;
+   word-wrap: break-word; /* Перенос слов, чтобы текст не выходил за границы */
+ }
+ 
+ .user-message {
+   
+   align-self: flex-start;
+   
+ }
+ 
+ .bot-message {
+ 
+   align-self: flex-end;
+ }
 .error-container {
    display: flex; /* Используем Flexbox для контейнера */
    justify-content: center; /* Центрируем по горизонтали */
