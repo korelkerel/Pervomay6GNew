@@ -583,6 +583,7 @@ font-size: 16pt;
 
 }
 .chat-message {
+    position: relative;
    padding: 0.7em; /* Увеличен отступ для содержимого */
   margin: 2em 0;  /* Увеличен отступ между сообщениями в относительных единицах */
    border-radius: 20px;
@@ -616,6 +617,7 @@ font-size: 16pt;
     to {
       transform: none;
     }
+}
 .error-container {
    display: flex; /* Используем Flexbox для контейнера */
    justify-content: center; /* Центрируем по горизонтали */
