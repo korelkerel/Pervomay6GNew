@@ -346,9 +346,9 @@ margin-right: 1%;
     padding: 30px; /* Внутренние отступы */
     display: block; /* Позволяет изображению занимать всю ширину */
     margin: 0 auto; /* Отступ сверху и снизу, центрирование по горизонтали */
-    max-width: 1600px; /* Максимальная ширина для контроля размера на больших экранах */
     color: white;
     font-size: 16pt;
+    width:100%;
 }
 .white-background-text {
    margin-top: 2%;
