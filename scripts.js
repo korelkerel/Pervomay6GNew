@@ -124,6 +124,9 @@ function openCard(element) {
   modal.style.display = 'block';
   modalBackground.style.display = 'block';
 }
+
+
+
 function closeCard() {
   const modal = document.getElementById('modal-card');
   const modalBackground = document.getElementById('modal-background');
@@ -190,6 +193,6 @@ document.getElementById('sendBtn').addEventListener('click', function() {
       
       // Скроллим чат вниз
       chatContent.scrollTop = chatContent.scrollHeight;
-    }, 1000); // Задержка 1 секунда
+    }, 1000);
   }
 });
