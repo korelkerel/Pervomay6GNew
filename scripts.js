@@ -125,37 +125,72 @@ function openCard(element) {
   modalBackground.style.display = 'block';
 }
 
-document.getElementById('sendBtn').addEventListener('click', function() {
+// Функция для получения ответа от OpenAI API
+async function getBotResponse(message) {
+  const apiKey = 'sk-svcacct-bXCIwngClgXAYggsNu_PeDo0mVuuMTH-wKdYd9u9g3VXy3z0VVOqieWR9iK2_T3BlbkFJm4pzCeRzhwZZ3Cefdy2pQIiCEfg3B4K6M2U-BjDBCD-x38FVMyCIG7PW7THAA'; // Вставь сюда свой API-ключ
+  const url = 'https://api.openai.com/v1/chat/completions';
+
+  const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`
+  };
+
+  const body = {
+      model: 'gpt-3.5-turbo', // Модель ChatGPT
+      messages: [
+          { role: 'user', content: message }
+      ]
+  };
+
+  const response = await fetch(url, {
+      method: 'POST',
+      headers: headers,
+      body: JSON.stringify(body)
+  });
+
+  const data = await response.json();
+  
+  // Проверяем на наличие ответа
+  if (data.choices && data.choices.length > 0) {
+      return data.choices[0].message.content; // Возвращаем ответ от бота
+  } else {
+      return "Извините, произошла ошибка."; // Обработка ошибок
+  }
+}
+
+// Обработчик нажатия на кнопку отправки
+document.getElementById('sendBtn').addEventListener('click', async function() {
   const messageInput = document.getElementById('messageInput');
   const chatContent = document.getElementById('chatContent');
   
   const userMessageText = messageInput.value;
   if (userMessageText.trim() !== '') {
-    // Создаем элемент для сообщения пользователя
-    const userMessage = document.createElement('div');
-    userMessage.classList.add('chat-message', 'user-message');
-    userMessage.innerText = userMessageText;
-    
-    // Добавляем сообщение пользователя в чат
-    chatContent.appendChild(userMessage);
-    
-    // Очищаем поле ввода
-    messageInput.value = '';
+      // Создаем элемент для сообщения пользователя
+      const userMessage = document.createElement('div');
+      userMessage.classList.add('chat-message', 'user-message');
+      userMessage.innerText = userMessageText;
+      
+      // Добавляем сообщение пользователя в чат
+      chatContent.appendChild(userMessage);
+      
+      // Очищаем поле ввода
+      messageInput.value = '';
 
-    // Генерируем ответ чат-бота через небольшую задержку
-    setTimeout(function() {
+      // Получаем ответ от API
+      const botReply = await getBotResponse(userMessageText);
+      
+      // Создаем элемент для сообщения бота и добавляем в чат
       const botMessage = document.createElement('div');
       botMessage.classList.add('chat-message', 'bot-message');
-      botMessage.innerText = 'Бот еще не работает.';
+      botMessage.innerText = botReply;
       
-      // Добавляем сообщение от бота в чат
       chatContent.appendChild(botMessage);
-      
+
       // Скроллим чат вниз
       chatContent.scrollTop = chatContent.scrollHeight;
-    }, 1000);
   }
 });
+
 
 function closeCard() {
   const modal = document.getElementById('modal-card');
