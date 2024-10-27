@@ -126,37 +126,7 @@ function openCard(element) {
 }
 
 // Функция для получения ответа от OpenAI API
-async function getBotResponse(message) {
-  const apiKey = 'sk-svcacct-bXCIwngClgXAYggsNu_PeDo0mVuuMTH-wKdYd9u9g3VXy3z0VVOqieWR9iK2_T3BlbkFJm4pzCeRzhwZZ3Cefdy2pQIiCEfg3B4K6M2U-BjDBCD-x38FVMyCIG7PW7THAA'; // Вставь сюда свой API-ключ
-  const url = 'https://api.openai.com/v1/chat/completions';
 
-  const headers = {
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${apiKey}`
-  };
-
-  const body = {
-      model: 'gpt-3.5-turbo', // Модель ChatGPT
-      messages: [
-          { role: 'user', content: message }
-      ]
-  };
-
-  const response = await fetch(url, {
-      method: 'POST',
-      headers: headers,
-      body: JSON.stringify(body)
-  });
-
-  const data = await response.json();
-  
-  // Проверяем на наличие ответа
-  if (data.choices && data.choices.length > 0) {
-      return data.choices[0].message.content; // Возвращаем ответ от бота
-  } else {
-      return "Извините, произошла ошибка."; // Обработка ошибок
-  }
-}
 
 // Обработчик нажатия на кнопку отправки
 document.getElementById('sendBtn').addEventListener('click', async function() {
