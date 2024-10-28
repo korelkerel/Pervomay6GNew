@@ -48,4 +48,7 @@ app.post('/api/chat', async (req, res) => {
         console.error('Ошибка:', error);
         res.status(500).json({ error: error.message });
     }
+    console.log("Используемый порт: ", PORT);
+app.listen(PORT, () => {
+    console.log("Сервер запущен на порту " + PORT);
 });
