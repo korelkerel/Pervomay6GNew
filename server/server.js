@@ -31,14 +31,14 @@ app.post('/api/chat', async (req, res) => {
             })
         });
 
+        if (!response.ok) {
+            throw new Error(`Ошибка API OpenAI: ${response.status} ${response.statusText}`);
+        }
+
         const data = await response.json();
         res.json({ reply: data.choices[0].message.content });
     } catch (error) {
         console.error('Ошибка:', error);
-        res.status(500).json({ error: 'Ошибка сервера' });
+        res.status(500).json({ error: error.message });
     }
-});
-
-app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
 });
