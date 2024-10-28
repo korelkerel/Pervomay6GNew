@@ -164,9 +164,9 @@ document.getElementById('sendBtn').addEventListener('click', async function() {
         // Очищаем поле ввода
         messageInput.value = '';
 
-        // Получаем ответ от API
         try {
-            const botReply = await getBotResponse(userMessageText); // Получаем ответ от сервера
+            // Получаем ответ от API
+            const botReply = await getBotResponse(userMessageText);
             
             // Создаем элемент для сообщения бота и добавляем в чат
             const botMessage = document.createElement('div');
@@ -175,18 +175,44 @@ document.getElementById('sendBtn').addEventListener('click', async function() {
             
             chatContent.appendChild(botMessage);
         } catch (error) {
-            console.error(error);
-            // Можно добавить обработку ошибки, например, вывести сообщение о том, что бот не доступен
-            const errorMessage = document.createElement('div');
-            errorMessage.classList.add('chat-message', 'bot-message');
-            errorMessage.innerText = 'Ошибка при получении ответа от бота.';
-            chatContent.appendChild(errorMessage);
+            // Обрабатываем ошибку
+            if (error.message === 'Слишком много запросов. Пожалуйста, попробуйте позже.') {
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('chat-message', 'error-message');
+                errorMessage.innerText = 'Слишком много запросов. Пожалуйста, попробуйте позже.';
+                chatContent.appendChild(errorMessage);
+            } else {
+                const errorMessage = document.createElement('div');
+                errorMessage.classList.add('chat-message', 'error-message');
+                errorMessage.innerText = 'Произошла ошибка при получении ответа от бота.';
+                chatContent.appendChild(errorMessage);
+            }
         }
 
         // Скроллим чат вниз
         chatContent.scrollTop = chatContent.scrollHeight;
     }
 });
+
+// Функция для получения ответа от бота
+async function getBotResponse(message) {
+    const response = await fetch('https://pervomay6gnew.onrender.com/api/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Ошибка при получении ответа от бота');
+    }
+
+    const data = await response.json();
+    return data.reply;
+}
+
 
 
 function closeCard() {
