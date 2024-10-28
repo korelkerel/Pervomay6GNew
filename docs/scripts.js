@@ -196,7 +196,7 @@ document.getElementById('sendBtn').addEventListener('click', async function() {
 
 // Функция для получения ответа от бота
 async function getBotResponse(message) {
-    const response = await fetch('https://pervomay6gnew.onrender.com/api/chat', {
+    const response = await fetch('https://pervomay6gnew.onrender.com', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
