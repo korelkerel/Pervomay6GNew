@@ -30,7 +30,11 @@ app.post('/api/chat', async (req, res) => {
             })
         });
 
-        // Проверяем, что ответ от OpenAI API успешный
+        // Проверяем ответ от API
+        if (response.status === 429) {
+            return res.status(429).json({ error: 'Слишком много запросов. Пожалуйста, попробуйте позже.' });
+        }
+
         if (!response.ok) {
             throw new Error(`Ошибка API OpenAI: ${response.status} ${response.statusText}`);
         }
@@ -39,12 +43,6 @@ app.post('/api/chat', async (req, res) => {
         res.json({ reply: data.choices[0].message.content });
     } catch (error) {
         console.error('Ошибка:', error);
-        // Отправляем ответ с ошибкой
         res.status(500).json({ error: error.message });
     }
-});
-
-// Запускаем сервер
-app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}`);
 });
