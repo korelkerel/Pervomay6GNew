@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // Настраиваем CORS, разрешая запросы с твоего сайта на GitHub Pages
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "https://korelkerel.github.io");
+    res.header("Access-Control-Allow-Origin", "https://korelkerel.github.io/Pervomay6GNew/chatbot.html");
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
     next();
