@@ -130,7 +130,7 @@ function openCard(element) {
 
 // Функция для получения ответа от бота
 async function getBotResponse(userMessage) {
-    const response = await fetch('https://pervomay6gnew.onrender.com', { // Указываем URL сервера
+    const response = await fetch('https://pervomay6gnew.onrender.com/api/chat', { // Указываем URL сервера
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
