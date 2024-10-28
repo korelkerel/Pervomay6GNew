@@ -1,13 +1,18 @@
 const express = require('express');
+const cors = require('cors'); // Подключаем CORS
 const fetch = require('node-fetch');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Указываем новую папку для статических файлов (docs)
+// Настраиваем CORS, разрешая запросы с твоего сайта на GitHub Pages
+app.use(cors({
+    origin: 'https://korelkerel.github.io' // Указываем адрес твоего сайта на GitHub Pages
+}));
+
+app.use(express.json());
 app.use(express.static(path.join(__dirname, 'docs')));
 
-// Маршрут для API-запросов
 app.post('/api/chat', async (req, res) => {
     const userMessage = req.body.message;
     const apiKey = process.env.OPENAI_API_KEY;
