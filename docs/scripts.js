@@ -128,37 +128,64 @@ function openCard(element) {
 // Функция для получения ответа от OpenAI API
 
 
+// Функция для получения ответа от бота
+async function getBotResponse(userMessage) {
+    const response = await fetch('https://pervomay6gnew.onrender.com', { // Указываем URL сервера
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: userMessage }) // Передаем сообщение пользователя
+    });
+
+    if (!response.ok) {
+        throw new Error('Сетевая ошибка при получении ответа от бота'); // Обрабатываем ошибки
+    }
+
+    const data = await response.json(); // Получаем данные в формате JSON
+    return data.reply; // Возвращаем ответ бота
+}
+
 // Обработчик нажатия на кнопку отправки
 document.getElementById('sendBtn').addEventListener('click', async function() {
-  const messageInput = document.getElementById('messageInput');
-  const chatContent = document.getElementById('chatContent');
-  
-  const userMessageText = messageInput.value;
-  if (userMessageText.trim() !== '') {
-      // Создаем элемент для сообщения пользователя
-      const userMessage = document.createElement('div');
-      userMessage.classList.add('chat-message', 'user-message');
-      userMessage.innerText = userMessageText;
-      
-      // Добавляем сообщение пользователя в чат
-      chatContent.appendChild(userMessage);
-      
-      // Очищаем поле ввода
-      messageInput.value = '';
+    const messageInput = document.getElementById('messageInput');
+    const chatContent = document.getElementById('chatContent');
+    
+    const userMessageText = messageInput.value;
+    if (userMessageText.trim() !== '') {
+        // Создаем элемент для сообщения пользователя
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('chat-message', 'user-message');
+        userMessage.innerText = userMessageText;
+        
+        // Добавляем сообщение пользователя в чат
+        chatContent.appendChild(userMessage);
+        
+        // Очищаем поле ввода
+        messageInput.value = '';
 
-      // Получаем ответ от API
-      const botReply = await getBotResponse(userMessageText);
-      
-      // Создаем элемент для сообщения бота и добавляем в чат
-      const botMessage = document.createElement('div');
-      botMessage.classList.add('chat-message', 'bot-message');
-      botMessage.innerText = botReply;
-      
-      chatContent.appendChild(botMessage);
+        // Получаем ответ от API
+        try {
+            const botReply = await getBotResponse(userMessageText); // Получаем ответ от сервера
+            
+            // Создаем элемент для сообщения бота и добавляем в чат
+            const botMessage = document.createElement('div');
+            botMessage.classList.add('chat-message', 'bot-message');
+            botMessage.innerText = botReply;
+            
+            chatContent.appendChild(botMessage);
+        } catch (error) {
+            console.error(error);
+            // Можно добавить обработку ошибки, например, вывести сообщение о том, что бот не доступен
+            const errorMessage = document.createElement('div');
+            errorMessage.classList.add('chat-message', 'bot-message');
+            errorMessage.innerText = 'Ошибка при получении ответа от бота.';
+            chatContent.appendChild(errorMessage);
+        }
 
-      // Скроллим чат вниз
-      chatContent.scrollTop = chatContent.scrollHeight;
-  }
+        // Скроллим чат вниз
+        chatContent.scrollTop = chatContent.scrollHeight;
+    }
 });
 
 
