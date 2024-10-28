@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 
 // Настраиваем CORS, разрешая запросы с твоего сайта на GitHub Pages
 app.use(cors({
-    origin: 'https://korelkerel.github.io/PervomayNew6G' // Указываем адрес твоего сайта на GitHub Pages
+    origin: 'https://korelkerel.github.io/Pervomay6GNew' // Указываем адрес твоего сайта на GitHub Pages
 }));
 
 app.use(express.json());
