@@ -1,0 +1,71 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+main {
+    flex: 1;
+}
+
+/* Стиль заголовка */
+header h1 {
+    text-align: center;
+    color: #333;
+}
+
+header h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* Основной контент */
+main p{
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+section #bioh2{
+    text-align: center;
+}
+
+section #biop{
+    text-align: justify;
+}
+
+/* Список */
+ul {
+    list-style-type: square;
+    padding-left: 30px;
+}
+
+/* Футер */
+.simple-footer {
+    background-color: #232323;
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    margin-top: auto;
+ }
+ 
+ .footer-logos {
+    display: flex;
+    justify-content: center;
+    gap: 70px; /* Расстояние между логотипами */
+    margin-bottom: 15px;
+ }
+ 
+ .footer-logo {
+    width: 80px;
+    height: auto;
+ }
+ 
+ .footer-bottom p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+ }
