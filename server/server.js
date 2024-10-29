@@ -28,12 +28,14 @@ app.post('/api/chat', async (req, res) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                inputs: userMessage
+                inputs: userMessage,
+                options: { wait_for_model: true } // добавляем опцию ожидания готовности модели
             })
         });
 
         if (!response.ok) {
-            throw new Error(`Ошибка API Hugging Face: ${response.status} ${response.statusText}`);
+            const errorDetails = await response.text(); // Извлекаем текст ошибки для диагностики
+            throw new Error(`Ошибка API Hugging Face: ${response.status} ${response.statusText}. Подробности: ${errorDetails}`);
         }
 
         const data = await response.json();
