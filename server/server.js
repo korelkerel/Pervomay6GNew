@@ -30,7 +30,7 @@ app.post('/api/chat', async (req, res) => {
             body: JSON.stringify({
                 model: 'command',   // Можно попробовать 'command' или другую доступную модель
                 prompt: userMessage,
-                max_tokens: 50,     // Максимальное количество токенов в ответе
+                max_tokens: 150,     // Максимальное количество токенов в ответе
                 temperature: 0.75,  // Управляет креативностью ответов; от 0 до 1
             })
         });
