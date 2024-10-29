@@ -18,28 +18,29 @@ app.use(express.static(path.join(__dirname, 'docs')));
 
 app.post('/api/chat', async (req, res) => {
     const userMessage = req.body.message;
-    const apiKey = process.env.HUGGING_FACE_API_KEY;
+    const apiKey = process.env.COHERE_API_KEY; // Убедись, что API-ключ от Cohere
 
     try {
-        const response = await fetch('https://api-inference.huggingface.co/models/facebook/blenderbot-1B-distill', {
+        const response = await fetch('https://api.cohere.ai/v1/generate', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                inputs: userMessage,
-                options: { wait_for_model: true } // добавляем опцию ожидания готовности модели
+                model: 'command',   // Можно попробовать 'command' или другую доступную модель
+                prompt: userMessage,
+                max_tokens: 50,     // Максимальное количество токенов в ответе
+                temperature: 0.75,  // Управляет креативностью ответов; от 0 до 1
             })
         });
 
         if (!response.ok) {
-            const errorDetails = await response.text(); // Извлекаем текст ошибки для диагностики
-            throw new Error(`Ошибка API Hugging Face: ${response.status} ${response.statusText}. Подробности: ${errorDetails}`);
+            throw new Error(`Ошибка API Cohere: ${response.status} ${response.statusText}`);
         }
 
         const data = await response.json();
-        res.json({ reply: data[0].generated_text });
+        res.json({ reply: data.generations[0].text });
     } catch (error) {
         console.error('Ошибка:', error);
         res.status(500).json({ error: error.message });
