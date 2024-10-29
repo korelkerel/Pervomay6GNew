@@ -48,7 +48,3 @@ app.listen(PORT, () => {
     console.log(`Сервер запущен на порту ${PORT}`);
 });
 
-console.log("Используемый порт: ", PORT);
-app.listen(PORT, () => {
-    console.log("Сервер запущен на порту " + PORT);
-}); // Закрывающая скобка для app.listen
