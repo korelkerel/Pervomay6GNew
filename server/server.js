@@ -21,7 +21,7 @@ app.post('/api/chat', async (req, res) => {
     const apiKey = process.env.HUGGING_FACE_API_KEY;
 
     try {
-        const response = await fetch('https://api-inference.huggingface.co/models/google/flan-t5-large', {
+        const response = await fetch('https://api-inference.huggingface.co/models/nvidia/Llama-3.1-Nemotron-70B-Instruct-HF', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${apiKey}`,
