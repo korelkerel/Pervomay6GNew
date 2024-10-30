@@ -565,6 +565,7 @@ font-size: 16pt;
    flex-direction: column;
    justify-content: flex-end;
    position: relative;
+    height: 30rem;
 }
 
 .chat-box-bot input {
