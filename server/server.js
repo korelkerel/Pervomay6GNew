@@ -49,7 +49,7 @@ app.post('/api/chat', async (req, res) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'command',
+                model: 'command-r-08-2024',
                 prompt: preparedMessage,
                 max_tokens: 550,
                 temperature: 0.75,
