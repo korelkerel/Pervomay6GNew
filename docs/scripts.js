@@ -253,3 +253,10 @@ function toggleMenu() {
       }
     }
   }
+// Обработчик для отправки сообщения по нажатию Enter
+document.getElementById('messageInput').addEventListener('keydown', async function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Отменяем стандартное действие Enter
+        document.getElementById('sendBtn').click(); // Имитируем нажатие на кнопку отправки
+    }
+});
