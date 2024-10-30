@@ -16,9 +16,29 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'docs')));
 
+const contextData = {
+    "Бурмистров Николай": "Бурмистров Николай — профессор, эксперт по коммуникациям и сетям 6G, автор нескольких книг по этой теме.",
+    "Nikolay Burmistrov": "Nikolay Burmistrov is a professor, expert in 6G communications and networks, and author of several books on the subject."
+};
+
+function preparePrompt(userMessage) {
+    let context = "";
+    for (let key in contextData) {
+        const keywords = key.split(", ");  // Разделяем на ключевые слова
+        if (keywords.some(keyword => userMessage.includes(keyword))) {
+            context += contextData[key] + " ";
+        }
+    }
+    return context + userMessage;
+}
+
+
 app.post('/api/chat', async (req, res) => {
     const userMessage = req.body.message;
-    const apiKey = process.env.COHERE_API_KEY; // Убедись, что API-ключ от Cohere
+    const apiKey = process.env.COHERE_API_KEY;
+
+    // Подготовка сообщения с учетом контекста
+    const preparedMessage = preparePrompt(userMessage);
 
     try {
         const response = await fetch('https://api.cohere.ai/v1/generate', {
@@ -28,10 +48,10 @@ app.post('/api/chat', async (req, res) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                model: 'command',   // Можно попробовать 'command' или другую доступную модель
-                prompt: userMessage,
-                max_tokens: 150,     // Максимальное количество токенов в ответе
-                temperature: 0.75,  // Управляет креативностью ответов; от 0 до 1
+                model: 'command',
+                prompt: preparedMessage,
+                max_tokens: 150,
+                temperature: 0.75,
             })
         });
 
