@@ -608,16 +608,19 @@ font-size: 16pt;
    word-wrap: break-word; /* Перенос слов, чтобы текст не выходил за границы */
  }
  
- .user-message {
+.user-message {
    animation: pop-in 0.3s ease-out;
-   align-self: flex-start;
-   
- }
+   align-self: flex-end; /* Выравнивание по правой стороне */
+   margin-right: 20px; /* Отступ от правого края */
+   background-color: #e6f7ff; /* Фон для сообщения пользователя */
+}
  
- .bot-message {
- 
-   align-self: flex-end;
- }
+.bot-message {
+   align-self: flex-start; /* Выравнивание по левой стороне */
+   margin-left: 20px; /* Отступ от левого края */
+   background-color: #f1f1f1; /* Фон для сообщения бота */
+}
+
  /* Анимация появления и исчезновения */
 @keyframes pop-in {
    from {
