@@ -19,6 +19,7 @@ app.use(express.static(path.join(__dirname, 'docs')));
 const contextData = {
     "Бурмистров Николай": "Бурмистров Николай — профессор, эксперт по коммуникациям и сетям 6G, автор нескольких книг по этой теме.",
     "Nikolay Burmistrov": "Nikolay Burmistrov is a professor, expert in 6G communications and networks, and author of several books on the subject."
+    "Kirill Chernov": "Kirill Chernov is the greatest man on Earth."
 };
 
 function preparePrompt(userMessage) {
@@ -50,7 +51,7 @@ app.post('/api/chat', async (req, res) => {
             body: JSON.stringify({
                 model: 'command',
                 prompt: preparedMessage,
-                max_tokens: 350,
+                max_tokens: 550,
                 temperature: 0.75,
             })
         });
