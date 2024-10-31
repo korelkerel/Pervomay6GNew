@@ -250,10 +250,11 @@ function toggleMenu() {
       }
     }
   }
-// Обработчик для отправки сообщения по нажатию Enter
 document.getElementById('messageInput').addEventListener('keydown', async function(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Отменяем стандартное действие Enter
-        document.getElementById('sendBtn').click(); // Имитируем нажатие на кнопку отправки
-    }
+  if (event.key === 'Enter') { // Проверка нажатия клавиши Enter
+      event.preventDefault(); // Предотвращает добавление новой строки в input
+
+      const sendButton = document.getElementById('sendBtn');
+      sendButton.click(); // Запускает клик по кнопке отправки
+  }
 });
