@@ -251,12 +251,16 @@ function toggleMenu() {
     }
   }
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('messageInput').addEventListener('keydown', async function(event) {
-        if (event.key === 'Enter') { // Проверка нажатия клавиши Enter
-            event.preventDefault(); // Предотвращает добавление новой строки в input
-
-            const sendButton = document.getElementById('sendBtn');
-            sendButton.click(); // Запускает клик по кнопке отправки
-        }
-    });
+    const sendButton = document.getElementById('sendBtn');
+    const messageInput = document.getElementById('messageInput');
+    if (sendButton && messageInput) { // Проверяем, что элементы найдены
+        messageInput.addEventListener('keydown', async function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                sendButton.click();
+            }
+        });
+    } else {
+        console.error("Элементы sendBtn или messageInput не найдены!");
+    }
 });
