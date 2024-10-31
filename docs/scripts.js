@@ -250,21 +250,14 @@ function toggleMenu() {
       }
     }
   }
-document.addEventListener('DOMContentLoaded', function() {
-    const sendButton = document.getElementById('sendBtn');
-    const messageInput = document.getElementById('messageInput');
-    if (sendButton && messageInput) { // Проверяем, что элементы найдены
-        messageInput.addEventListener('keydown', async function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                sendButton.click();
-            }
-        });
-    } else {
-        console.error("Элементы sendBtn или messageInput не найдены!");
+  document.addEventListener('keydown', function(event) {
+    if (event.keyCode === 13) { // Проверяем, нажата ли клавиша Enter
+        const messageInput = document.getElementById('messageInput'); // Поле для ввода сообщения
+        const userMessageText = messageInput.value.trim(); // Получаем текст сообщения
+
+        if (userMessageText !== '') {
+            document.getElementById('sendBtn').click(); // Имитируем нажатие кнопки отправки
+            messageInput.value = ''; // Очищаем поле ввода после отправки
+        }
     }
 });
-document.getElementById('sendBtn').addEventListener('click', function() {
-    console.log("Кнопка нажата!");
-});
-
