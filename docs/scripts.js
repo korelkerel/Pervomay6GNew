@@ -250,11 +250,13 @@ function toggleMenu() {
       }
     }
   }
-document.getElementById('messageInput').addEventListener('keydown', async function(event) {
-  if (event.key === 'Enter') { // Проверка нажатия клавиши Enter
-      event.preventDefault(); // Предотвращает добавление новой строки в input
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('messageInput').addEventListener('keydown', async function(event) {
+        if (event.key === 'Enter') { // Проверка нажатия клавиши Enter
+            event.preventDefault(); // Предотвращает добавление новой строки в input
 
-      const sendButton = document.getElementById('sendBtn');
-      sendButton.click(); // Запускает клик по кнопке отправки
-  }
+            const sendButton = document.getElementById('sendBtn');
+            sendButton.click(); // Запускает клик по кнопке отправки
+        }
+    });
 });
