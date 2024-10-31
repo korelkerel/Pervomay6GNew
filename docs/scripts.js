@@ -264,3 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Элементы sendBtn или messageInput не найдены!");
     }
 });
+document.getElementById('sendBtn').addEventListener('click', function() {
+    console.log("Кнопка нажата!");
+});
+
