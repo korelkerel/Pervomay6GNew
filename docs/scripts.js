@@ -194,27 +194,24 @@ document.getElementById('sendBtn').addEventListener('click', async function() {
     }
 });
 
-// Функция для получения ответа от бота
-async function getBotResponse(message) {
+const history = []; // Храним историю переписки
+
+async function getBotResponse(userMessage) {
+    history.push(`User: ${userMessage}`);
+    const context = history.slice(-5).join('\n'); // Берем последние 5 сообщений из истории
+
     const response = await fetch('https://pervomay6gnew.onrender.com/api/chat', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message: context }) // Отправляем весь контекст
     });
 
-    if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Ошибка при получении ответа от бота');
-    }
-
     const data = await response.json();
+    history.push(`Bot: ${data.reply}`); // Добавляем ответ бота в историю
     return data.reply;
 }
-
-
-
 function closeCard() {
   const modal = document.getElementById('modal-card');
   const modalBackground = document.getElementById('modal-background');
