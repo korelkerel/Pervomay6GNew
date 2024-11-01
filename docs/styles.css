@@ -698,30 +698,59 @@ font-size: 16pt;
 }
 /* Мобильная версия */
 @media (max-width: 768px) {
-   .menu {
-       display: none; /* Скрываем меню на мобиле */
-       flex-direction: column;
-       width: 100%;
-       position: fixed;
-       top: 0;
-       left: 0;
-       background-color: rgba(255, 255, 255, 0.9); /* Плотный фон */
-       height: 100vh; /* Меню на весь экран */
-       justify-content: center;
-       align-items: center;
-    border-radius: 0;
-   } 
-   .hamburger {
-       display: block; /* Показываем кнопку */
-     
-   }
-
-   .menu.active {
-       display: flex; /* Показываем меню при клике */
-   }
-   .Border{
+   .menu-container {
+      position: fixed;               /* Закреплено сверху */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50px;                  /* Высота полоски меню */
+      background-color: #7e7e7e;        /* Темный фон как у Apple */
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;     /* Выравнивание элементов справа */
+      padding: 0 20px;               /* Отступы по бокам */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Легкая тень */
+      z-index: 1000;  
+  }
+  
+  /* Скрываем меню и стилизуем для мобилки */
+  .menu {
+      display: none;           /* Скрываем на мобиле */
+      flex-direction: column;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: rgba(107, 107, 107, 0.97); /* Полупрозрачный фон */
+      height: 100vh;           /* На весь экран */
+      justify-content: center;
+      align-items: right;
+      border-radius: 0;
+      transition: 0.3s ease;  /* Анимация появления */
+      font-size: 28pt;
+      font-weight: bold;
+      row-gap: 0px;
+  }
+  
+  .menu.active {
+      display: flex;           /* Показываем меню при клике */
+  }
+  
+  .hamburger {
+   font-size: 16pt;               /* Размер значка бургер-меню */
+   color: #ffffff;                   /* Белый цвет иконки */
+   background: none;
+   border: none;
+   cursor: pointer;
+   display: block;
+   top: 10px;
+  }
+  
+  /* Скрываем обводку на мобиле */
+  .Border {
       display: none;
-   }
+  }
+  
 }
 @media (max-width: 768px) {
    .LangSel {
@@ -751,6 +780,7 @@ font-size: 16pt;
    .container-bot {
       flex-direction: column; /* Вертикальное расположение для мобильных устройств */
       align-items: center; /* Центрирование элементов */
+      margin-top: 300px;
    }
 
    .question-box-bot {
@@ -762,12 +792,147 @@ font-size: 16pt;
    .chat-box-bot {
       order: 1; /* Устанавливаем порядок для отображения ниже */
       width: 90%; /* Уменьшена ширина для мобильной версии */
-      height: 300px; /* Фиксированная высота */
+      height: 500px; /* Фиксированная высота */
       min-height: 300px; /* Минимальная высота */
-       
+   
    }
+   .left-aligned-text {
+      text-align: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+  }
+
+  .left-aligned-text p {
+      text-align: center; /* Центрирует текст на мобильных */
+      font-size: 12pt; /* Устанавливает размер шрифта */
+  }
+
+  .left-aligned-text img {
+      order: 1; /* Перемещает изображение под текст */
+      margin-top: 10px; /* Дополнительный отступ для изображения */
+      max-width: 100%; /* Ограничивает изображение по ширине */
+      height: auto; /* Сохраняет пропорции изображения */
+  }
+   .overlay-title{
+      font-size: 28pt;
+   }
+   .centered-image-new{
+     width: 100%;
+   }
+   .centered-text-black{
+font-size: 12pt;
+   }
+   .black-background-block {
+      padding: 10px;
+  }
+
+  .centered-image-new {
+      width: 100%; /* Увеличиваем изображение до 100% ширины */
+      padding-top: 0; /* Убираем верхний отступ */
+      margin-bottom: 0 auto;
+      display: block;
+      height: auto;
+  }
+
+  .overlay-title {
+      font-size: 30pt; /* Уменьшаем размер шрифта заголовка для мобильных */
+      top: 55%; /* Сохраняем заголовок по центру изображения */
+      left: 50%;
+      transform: translate(-50%, -50%);
+  }
+
+  .centered-text-black {
+      font-size: 12pt; /* Уменьшаем размер текста */
+      padding: 10px; /* Уменьшаем внутренние отступы */
+      margin-top: 0; /* Убираем отступ сверху, чтобы текст подходил вплотную к картинке */
+  }
+  .page-container, .container-bot {
+   padding-bottom: 50px; /* Регулируй значение для нужного отступа */
 }
-  
-   font-size: 16px;
-   color: #333;
+input, textarea {
+   font-size: 16px; /* Минимальный размер для отключения зума */
+}
+.advantages {
+   flex-direction: column; /* Ставим карточки вертикально */
+   align-items: center; /* Центрируем карточки */
+   gap: 20px; /* Отступы между карточками */
+   margin: 0; /* Убираем внешние отступы */
+}
+
+.card {
+   width: 90%; /* Ширина карточек на мобильных */
+   height: 300px; /* Высота карточек на мобильных */
+}
+
+.card-text {
+   font-size: 20px; /* Уменьшаем размер текста для мобильных */
+}
+
+.add-icon {
+   width: 40px;
+   height: 40px;
+   font-size: 18pt;
+}
+.modal-card {
+   width: 90%; /* Ширина карточки ближе к ширине экрана на мобильных */
+   top: 50%; /* Центрируем ближе к середине экрана */
+   left: 50%;
+   transform: translate(-50%, -50%); /* Полное центрирование */
+   min-height: 40vh; /* Немного увеличиваем высоту */
+   padding: 20px;
+}
+
+.modal-content {
+   padding: 15px; /* Уменьшаем внутренние отступы */
+}
+
+.modal-body h1, .modal-body p {
+   font-size: 16pt; /* Уменьшаем размер текста */
+   text-align: center;
+}
+
+.close {
+   font-size: 12pt; /* Крестик остаётся заметным */
+}
+.text-card-center p {
+   font-size: 12pt
+}
+.white-background-text-right {
+   padding: 10px; /* Уменьшенный внутренний отступ */
+   margin: 0 5px; /* Минимальный внешний отступ по бокам */
+   flex-direction: column; /* Ставим текст и картинку по вертикали */
+   align-items: center; /* Центрируем текст */
+}
+
+.white-background-text-right p {
+   width: 100%; /* Ширина текста на всю ширину контейнера */
+   text-align: center; /* Центрируем текст */
+   padding: 5px; /* Уменьшенные внутренние отступы для текста */
+   font-size: 12pt; /* Размер шрифта для мобильной версии */
+}
+
+.image-safety-container {
+   padding: 10px; /* Уменьшенный отступ вокруг изображения */
+   margin: 0; /* Убираем отступы */
+}
+
+.white-background-text-right img {
+   width:30%; /* Увеличиваем размер изображения на мобильных, если нужно */
+}
+#meet6g1{
+   text-align: center;
+}
+.white-background-text{
+   padding: 10px; /* Уменьшенный внутренний отступ */
+   margin: 0 5px; /* Минимальный внешний отступ по бокам */
+   flex-direction: column; /* Ставим текст и картинку по вертикали */
+   align-items: center; /* Центрируем текст */
+
+}
+.white-background-text p {
+   width: 100%; /* Ширина текста на всю ширину контейнера */
+   text-align: center; /* Центрируем текст */
+   padding: 5px; /* Уменьшенные внутренние отступы для текста */
+   font-size: 12pt; /* Размер шрифта для мобильной версии */
 }
