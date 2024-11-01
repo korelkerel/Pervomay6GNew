@@ -51,7 +51,7 @@ app.post('/api/chat', async (req, res) => {
             body: JSON.stringify({
                 model: 'command-r-08-2024',
                 prompt: preparedMessage,
-                max_tokens: 550,
+                max_tokens: 1000,
                 temperature: 0.75,
             })
         });
