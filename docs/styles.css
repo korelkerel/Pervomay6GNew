@@ -779,56 +779,60 @@ font-size: 16pt;
       width: 80%;
       font-size: 12pt;
    }
-   .container-bot {
+    .container-bot {
       flex-direction: column; /* Вертикальное расположение для мобильных устройств */
       align-items: center; /* Центрирование элементов */
-      margin-top: 300px;
-   }
-
-   .question-box-bot {
+      margin-top: 18.75rem; /* 300px -> rem */
+  }
+  
+  .question-box-bot {
       order: 2; /* Устанавливаем порядок для отображения выше */
       width: 90%; /* Уменьшена ширина для мобильной версии */
       height: auto; /* Автоматическая высота */
-   }
-
-   .chat-box-bot {
+  }
+  
+  .chat-box-bot {
       order: 1; /* Устанавливаем порядок для отображения ниже */
       width: 90%; /* Уменьшена ширина для мобильной версии */
-      height: 500px; /* Фиксированная высота */
-      min-height: 300px; /* Минимальная высота */
-   
-   }
-   .left-aligned-text {
+      height: 31rem; /* Фиксированная высота */
+      min-height: 18.75rem; /* 300px -> rem */
+  }
+  
+  .left-aligned-text {
       text-align: center;
       align-items: center;
       display: flex;
       flex-direction: column;
   }
-
+  
   .left-aligned-text p {
       text-align: center; /* Центрирует текст на мобильных */
-      font-size: 12pt; /* Устанавливает размер шрифта */
+      font-size: 12pt; /* 12pt -> rem */
   }
-
+  
   .left-aligned-text img {
       order: 1; /* Перемещает изображение под текст */
-      margin-top: 10px; /* Дополнительный отступ для изображения */
+      margin-top: 0.625rem; /* 10px -> rem */
       max-width: 100%; /* Ограничивает изображение по ширине */
       height: auto; /* Сохраняет пропорции изображения */
   }
-   .overlay-title{
-      font-size: 28pt;
-   }
-   .centered-image-new{
-     width: 100%;
-   }
-   .centered-text-black{
-font-size: 12pt;
-   }
-   .black-background-block {
-      padding: 10px;
+  
+  .overlay-title {
+      font-size: 1.75rem; /* 28pt -> rem */
   }
-
+  
+  .centered-image-new {
+      width: 100%;
+  }
+  
+  .centered-text-black {
+      font-size: 12pt; /* 12pt -> rem */
+  }
+  
+  .black-background-block {
+      padding: 0.625rem; /* 10px -> rem */
+  }
+  
   .centered-image-new {
       width: 100%; /* Увеличиваем изображение до 100% ширины */
       padding-top: 0; /* Убираем верхний отступ */
@@ -836,105 +840,113 @@ font-size: 12pt;
       display: block;
       height: auto;
   }
-
+  
   .overlay-title {
-      font-size: 30pt; /* Уменьшаем размер шрифта заголовка для мобильных */
+      font-size: 1.875rem; /* 30pt -> rem */
       top: 55%; /* Сохраняем заголовок по центру изображения */
       left: 50%;
       transform: translate(-50%, -50%);
   }
-
+  
   .centered-text-black {
-      font-size: 12pt; /* Уменьшаем размер текста */
-      padding: 10px; /* Уменьшаем внутренние отступы */
+      font-size: 12pt; /* 12pt -> rem */
+      padding: 0.625rem; /* 10px -> rem */
       margin-top: 0; /* Убираем отступ сверху, чтобы текст подходил вплотную к картинке */
   }
+  
   .page-container, .container-bot {
-   padding-bottom: 50px; /* Регулируй значение для нужного отступа */
-}
-input, textarea {
-   font-size: 16px; /* Минимальный размер для отключения зума */
-}
-.advantages {
-   flex-direction: column; /* Ставим карточки вертикально */
-   align-items: center; /* Центрируем карточки */
-   gap: 20px; /* Отступы между карточками */
-   margin: 0; /* Убираем внешние отступы */
-}
-
-.card {
-   width: 90%; /* Ширина карточек на мобильных */
-   height: 300px; /* Высота карточек на мобильных */
-}
-
-.card-text {
-   font-size: 20px; /* Уменьшаем размер текста для мобильных */
-}
-
-.add-icon {
-   width: 40px;
-   height: 40px;
-   font-size: 18pt;
-}
-.modal-card {
-   width: 90%; /* Ширина карточки ближе к ширине экрана на мобильных */
-   top: 50%; /* Центрируем ближе к середине экрана */
-   left: 50%;
-   transform: translate(-50%, -50%); /* Полное центрирование */
-   min-height: 40vh; /* Немного увеличиваем высоту */
-   padding: 20px;
-}
-
-.modal-content {
-   padding: 15px; /* Уменьшаем внутренние отступы */
-}
-
-.modal-body h1, .modal-body p {
-   font-size: 16pt; /* Уменьшаем размер текста */
-   text-align: center;
-}
-
-.close {
-   font-size: 12pt; /* Крестик остаётся заметным */
-}
-.text-card-center p {
-   font-size: 12pt
-}
-.white-background-text-right {
-   padding: 10px; /* Уменьшенный внутренний отступ */
-   margin: 0 5px; /* Минимальный внешний отступ по бокам */
-   flex-direction: column; /* Ставим текст и картинку по вертикали */
-   align-items: center; /* Центрируем текст */
-}
-
-.white-background-text-right p {
-   width: 100%; /* Ширина текста на всю ширину контейнера */
-   text-align: center; /* Центрируем текст */
-   padding: 5px; /* Уменьшенные внутренние отступы для текста */
-   font-size: 12pt; /* Размер шрифта для мобильной версии */
-}
-
-.image-safety-container {
-   padding: 10px; /* Уменьшенный отступ вокруг изображения */
-   margin: 0; /* Убираем отступы */
-}
-
-.white-background-text-right img {
-   width:30%; /* Увеличиваем размер изображения на мобильных, если нужно */
-}
-#meet6g1{
-   text-align: center;
-}
-.white-background-text{
-   padding: 10px; /* Уменьшенный внутренний отступ */
-   margin: 0 5px; /* Минимальный внешний отступ по бокам */
-   flex-direction: column; /* Ставим текст и картинку по вертикали */
-   align-items: center; /* Центрируем текст */
-
-}
-.white-background-text p {
-   width: 100%; /* Ширина текста на всю ширину контейнера */
-   text-align: center; /* Центрируем текст */
-   padding: 5px; /* Уменьшенные внутренние отступы для текста */
-   font-size: 12pt; /* Размер шрифта для мобильной версии */
-}
+      padding-bottom: 3.125rem; /* 50px -> rem */
+  }
+  
+  input, textarea {
+      font-size: 12pt; /* 16px -> rem */
+  }
+  
+  .advantages {
+      flex-direction: column; /* Ставим карточки вертикально */
+      align-items: center; /* Центрируем карточки */
+      gap: 1.25rem; /* 20px -> rem */
+      margin: 0; /* Убираем внешние отступы */
+  }
+  
+  .card {
+      width: 90%; /* Ширина карточек на мобильных */
+      height: 18.75rem; /* 300px -> rem */
+  }
+  
+  .card-text {
+      font-size: 1.25rem; /* 20px -> rem */
+  }
+  
+  .add-icon {
+      width: 2.5rem; /* 40px -> rem */
+      height: 2.5rem; /* 40px -> rem */
+      font-size: 1.125rem; /* 18pt -> rem */
+  }
+  
+  .modal-card {
+      width: 90%; /* Ширина карточки ближе к ширине экрана на мобильных */
+      top: 50%; /* Центрируем ближе к середине экрана */
+      left: 50%;
+      transform: translate(-50%, -50%); /* Полное центрирование */
+      min-height: 40vh; /* Немного увеличиваем высоту */
+      padding: 1.25rem; /* 20px -> rem */
+  }
+  
+  .modal-content {
+      padding: 0.9375rem; /* 15px -> rem */
+  }
+  
+  .modal-body h1, .modal-body p {
+      font-size: 1rem; /* 16pt -> rem */
+      text-align: center;
+  }
+  
+  .close {
+      font-size: 0.75rem; /* 12pt -> rem */
+  }
+  
+  .text-card-center p {
+      font-size: 0.75rem; /* 12pt -> rem */
+  }
+  
+  .white-background-text-right {
+      padding: 0.625rem; /* 10px -> rem */
+      margin: 0 0.3125rem; /* 5px -> rem */
+      flex-direction: column; /* Ставим текст и картинку по вертикали */
+      align-items: center; /* Центрируем текст */
+  }
+  
+  .white-background-text-right p {
+      width: 100%; /* Ширина текста на всю ширину контейнера */
+      text-align: center; /* Центрируем текст */
+      padding: 0.3125rem; /* 5px -> rem */
+      font-size: 12pt; /* 12pt -> rem */
+  }
+  
+  .image-safety-container {
+      padding: 0.625rem; /* 10px -> rem */
+      margin: 0; /* Убираем отступы */
+  }
+  
+  .white-background-text-right img {
+      width: 30%; /* Увеличиваем размер изображения на мобильных, если нужно */
+  }
+  
+  #meet6g1 {
+      text-align: center;
+  }
+  
+  .white-background-text {
+      padding: 0.625rem; /* 10px -> rem */
+      margin: 0 0.3125rem; /* 5px -> rem */
+      flex-direction: column; /* Ставим текст и картинку по вертикали */
+      align-items: center; /* Центрируем текст */
+  }
+  
+  .white-background-text p {
+      width: 100%; /* Ширина текста на всю ширину контейнера */
+      text-align: center; /* Центрируем текст */
+      padding: 0.3125rem; /* 5px -> rem */
+      font-size:12pt; /* 12pt -> rem */
+  }
