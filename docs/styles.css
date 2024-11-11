@@ -950,3 +950,15 @@ font-size: 16pt;
       padding: 0.3125rem; /* 5px -> rem */
       font-size:12pt; /* 12pt -> rem */
   }
+       .horizontal-card-new {
+   flex-direction: column;
+   width: 90%;
+}
+
+.horizontal-card-new img {
+   display: none;
+}
+.horizontal-card-new .card-content {
+   width: 100%; /* Текст тоже на всю ширину */
+   text-align: center; /* Выравнивание текста по центру для мобильных */
+}
