@@ -140,20 +140,43 @@ ul.active ~ .Border {
    position: relative; /* Относительное позиционирование для изображения */
    z-index: 0; /* Убедитесь, что изображение под текстом */
 }
-.advantages {
-   margin-top: 3%;
+.carousel {
+   position: relative;
+   width: 100%;
+   max-width: 100vw; /* Ограничение ширины */
+   margin: auto;
+   overflow: hidden; /* Скрытие лишнего */
+ }
+ 
+ .carousel-container {
    display: flex;
-   justify-content: space-between; /* Равномерное распределение карточек */
-   gap: 20px; /* Увеличиваем отступы между карточками */
-   margin-left:1%;
-margin-right: 1%;
-}
-
-.card1 {
+   gap: 1rem; /* Отступ между карточками (16px -> rem) */
+   transition: transform 0.5s ease;
+   padding: 0 1rem; /* Добавляем отступы по краям */
+   box-sizing: content-box; /* Чтобы padding считался правильно */
+   margin-top: 3%;
+ }
+ 
+ .card {
+   flex-shrink: 0;
+   width: calc(90vw / 3); /* Размер карточки: 1/3 от ширины видимой области */
+   max-width: 18rem; /* Максимальная ширина карточки */
+   height: 30rem;
+   padding: 1rem;
+   border-radius: 1rem;
+   background-color: #444;
+   text-align: left;
+   position: relative;
+   transition: 0.3s;
+   cursor: pointer;
+ }
+ .card h3{
+   font-size: 20pt;
+ }
+ .card1 {
    background: url('https://static.wixstatic.com/media/a46fdc_ab144b44d9c84e8cbf1aeefd97d4a906~mv2.png') no-repeat center center;
    background-size: cover;
 }
-
 .card2 {
    background: url('https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iasp7ZQzcrZc/v2/-1x-1.jpg') no-repeat center center;
    background-size: cover;
@@ -168,49 +191,78 @@ margin-right: 1%;
    background: url('https://static.wixstatic.com/media/a46fdc_ed6c877d574f4bceb68e84b6e05a23ff~mv2.png') no-repeat center center;
    background-size: 70%;
 }
-
-.card {
-   position: relative;
-   cursor: pointer;
-   border-radius: 20px;
-   width: 22%;
-   height: 400px;
-   text-align: center;
-   overflow: hidden;
+.card5 {
+   background: url('https://static.wixstatic.com/media/a46fdc_f3e16e33bf41421087142aeed2cd2117~mv2.jpeg') no-repeat center center;
+   background-size: cover;
+}
+.card6 {
+   background: url('https://static.wixstatic.com/media/a46fdc_74d686dde6a14a2c9e4be0dac1a57edc~mv2.jpeg') no-repeat center center;
+   background-size: cover;
+}
+.card7 {
+   background: url('https://static.wixstatic.com/media/a46fdc_1155c0db4df14c5a80b71a0e1640d7c3~mv2.jpeg') no-repeat center center;
+   background-size: cover;
 }
 
-.card-text {
+ .card:hover{
+   transform: scale(1.05);
+ }
+ 
+ 
+ .more-btn {
    position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+   bottom: 1rem; /* 15px -> rem */
+   right: 1rem;
+   background-color: rgba(0, 0, 0, 0.8);
    color: white;
-   font-size: 24px;
-   font-weight: bold;
-   z-index: 1;
-}
-
-.add-icon {
-   position: absolute;
-   bottom: 20px;
-   right: 20px;
-   background: rgba(255, 255, 255, 0.8);
+   border: none;
    border-radius: 50%;
-   width: 50px;
-   height: 50px;
+   width: 2.5rem; /* 40px -> rem */
+   height: 2.5rem;
+   font-size: 1.25rem; /* 20px -> rem */
+   cursor: pointer;
    display: flex;
    align-items: center;
    justify-content: center;
-   font-size: 24pt;
-   cursor: pointer;
-   z-index: 1;
-}
-.card:hover{
-   transition: all 0.6s ease;
-   transform: translate(-1%, -1%) scale(1.02);
-   transform-origin: center;
-}
-
+ }
+ 
+ .carousel-controls {
+   display: flex;
+   justify-content: right;
+   margin-top: 2rem; /* 15px -> rem */
+ }
+ 
+ .prev-btn,
+ .next-btn {
+   background: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+   border: none; /* Без рамки */
+   cursor: pointer; /* Курсор указателя */
+   width: 40px; /* Диаметр круга */
+   height: 40px; /* Диаметр круга */
+   border-radius: 50%; /* Скругление до круга */
+   display: flex; /* Центрирование содержимого */
+   align-items: center;
+   justify-content: center;
+   margin: 0 10px; /* Отступ между кнопками */
+ }
+ 
+ .prev-btn:hover,
+ .next-btn:hover {
+   background: rgba(0, 0, 0, 0.7); /* Затемнение при наведении */
+ }
+ 
+ /* Убираем стандартное выделение кнопок */
+ .prev-btn:focus,
+ .next-btn:focus {
+   outline: none;
+ }
+ 
+ /* Изображения стрелок */
+ .prev-btn img,
+ .next-btn img {
+   width: 1.3rem; /* Размер стрелки */
+   height: 1.3rem;
+ }
 /* Анимация для картинки при скролле */
 .shrunk {
  width: 90%; /* Уменьшение ширины */
