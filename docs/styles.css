@@ -963,7 +963,9 @@ font-size: 16pt;
   .modal-content {
       padding: 0.9375rem; /* 15px -> rem */
   }
-  
+   .modal-image{
+   width: 85%;
+  }
   .modal-body h1, .modal-body p {
       font-size: 1rem; /* 16pt -> rem */
       text-align: center;
