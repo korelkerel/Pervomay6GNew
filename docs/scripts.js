@@ -86,24 +86,41 @@ safety.innerText = 'Безопасность';
 }
 const cardData = {
   card1: {
-      title: "Суперскорость.",
+      title: "Суперскорость!",
       text: "6G обещает предоставить революционную скорость передачи данных, превышающую 100 гигабит в секунду в некоторых сценариях. Это обеспечит моментальный доступ к информации и сервисам, что приведет к новому уровню продуктивности и возможностям для бизнеса. Применение субтерагерцовых частот и новых радиотехнологий позволит достичь этих сверхвысоких скоростей, поддерживая стабильную и надежную связь даже в самых требовательных условиях​.",
-     
+      image: "https://i.kinja-img.com/image/upload/c_fit,q_60,w_1315/37b71fe7b5c083c37e10ad7f21d24eaf.jpg"
   },
   card2: {
       title: "Интеллектуальные сети.",
       text: "6G внедрит автономные сети, управляемые искусственным интеллектом (AI) и машинным обучением (ML). Эти интеллектуальные системы позволят сетям адаптироваться к изменениям, оптимизировать использование ресурсов и прогнозировать возможные проблемы, что улучшит работу как сети, так и пользовательских сервисов. Кроме того, 6G будет использовать возможности автоматизации для создания самонастраивающихся сетей.",
-     
+     image: "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iasp7ZQzcrZc/v2/-1x-1.jpg"
   },
   card3: {
       title: "Иммерсивность.",
       text: "Технологии 6G значительно улучшат возможности расширенной и виртуальной реальности (XR), создавая совершенно новый уровень иммерсивности. Это позволит пользователям полностью погружаться в цифровую среду, создавая метавселенные и улучшенные интерфейсы для взаимодействия с виртуальным миром. 6G откроет путь к высокоэффективным и захватывающим впечатлениям​.",
-     
+     image: "https://www.techfinitive.com/wp-content/uploads/2023/02/6g-for-business.jpg"
   },
   card4: {
       title: "Безопасность.",
       text: "6G обеспечит максимальный уровень безопасности и доверия, включая устойчивость к кибератакам и возможность продолжать работу даже в условиях чрезвычайных ситуаций. Новые решения для защиты данных будут встроены в основу сети, что сделает ее более надежной и готовой к будущим вызовам в сфере безопасности.",
-      
+      image: "https://d1.awsstatic.com/protect-underlying-data.070021c9f674f8a2390b6a3f5bb0372da08c4f1e.png"
+  },
+
+  card5: {
+    image:"https://static.wixstatic.com/media/a46fdc_f3e16e33bf41421087142aeed2cd2117~mv2.jpeg",
+      title: "Ультранизкая задержка.",
+      text: "6G может обеспечить чрезвычайно низкую задержку передачи данных, что будет иметь решающее значение для приложений, требующих мгновенной реакции, таких как автономные автомобили, виртуальная реальность и удаленные хирургические операции."
+  },
+  card6: {
+    image: "https://static.wixstatic.com/media/a46fdc_74d686dde6a14a2c9e4be0dac1a57edc~mv2.jpeg",
+      title: "Масштабируемость и гибкость.",
+      text: "Сети 6G будут способны поддерживать огромное количество подключенных устройств и обеспечить масштабируемость для удовлетворения растущих потребностей в данных. Гибкость сетей 6G позволит адаптироваться к различным условиям и требованиям пользователей."
+  },
+
+  card7: {
+    image: "https://static.wixstatic.com/media/a46fdc_1155c0db4df14c5a80b71a0e1640d7c3~mv2.jpeg",
+      title: "Энергосбережение.",
+      text: "6G может быть спроектирован с учетом энергоэффективности, чтобы уменьшить энергопотребление устройств и сетей. Это может включать в себя более эффективные алгоритмы передачи данных, оптимизированные спящие режимы и улучшенные технологии сбора энергии."
   }
 };
 
@@ -112,19 +129,63 @@ function openCard(element) {
   const modalTitle = document.getElementById('modal-title');
   const modalText = document.getElementById('modal-text');
   const modalBackground = document.getElementById('modal-background');
-
+  const modalImage = document.getElementById('modal-image');
   const cardId = element.classList[1]; // Получаем ID карточки, например card1
 
   // Устанавливаем данные модальной карточки
  
   modalTitle.innerText = cardData[cardId].title;
   modalText.innerText = cardData[cardId].text;
-
+  if (cardData[cardId].image) {
+    modalImage.src = cardData[cardId].image;
+    modalImage.style.display = 'block'; // Показываем изображение
+  } else {
+    modalImage.style.display = 'none'; // Скрываем изображение, если его нет
+  }
   // Показываем модальную карточку и фон
   modal.style.display = 'block';
   modalBackground.style.display = 'block';
 }
 
+const carouselContainer = document.querySelector('.carousel-container');
+const cards = document.querySelectorAll('.card');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentIndex = 0;
+
+function calculateCardWidth() {
+  const cardWidth = cards[0].offsetWidth; // Ширина одной карточки
+  const gap = parseFloat(getComputedStyle(carouselContainer).gap); // Отступ между карточками
+  return cardWidth + gap; // Полная ширина с учётом gap
+}
+
+function updateCarousel() {
+  const cardWidth = calculateCardWidth();
+  const visibleWidth = carouselContainer.parentElement.offsetWidth; // Ширина видимой области
+  const totalCards = cards.length;
+  
+  const padding = parseFloat(getComputedStyle(carouselContainer).paddingLeft); // Padding по краям
+  const maxIndex = totalCards - Math.floor((visibleWidth - 2 * padding) / cardWidth); // Учет отступов
+
+  currentIndex = Math.min(Math.max(currentIndex, 0), maxIndex); // Ограничиваем индекс
+  const offset = -(currentIndex * cardWidth) + padding; // Центрируем с учётом padding
+
+  carouselContainer.style.transform = `translateX(${offset}px)`;
+}
+
+prevBtn.addEventListener('click', () => {
+  currentIndex -= 1;
+  updateCarousel();
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex += 1;
+  updateCarousel();
+});
+
+window.addEventListener('resize', updateCarousel); // Перерасчет при изменении размеров окна
+updateCarousel();
 // Функция для получения ответа от OpenAI API
 
 
