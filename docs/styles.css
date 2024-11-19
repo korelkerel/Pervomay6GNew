@@ -917,7 +917,7 @@ font-size: 16pt;
   }
   
   .overlay-title {
-      font-size: 1.875rem; /* 30pt -> rem */
+      font-size: 20pt; /* 30pt -> rem */
       top: 55%; /* Сохраняем заголовок по центру изображения */
       left: 50%;
       transform: translate(-50%, -50%);
