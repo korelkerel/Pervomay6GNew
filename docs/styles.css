@@ -757,7 +757,15 @@ font-size: 16pt;
  .error__close path {
    fill: #fff;
  }
-
+ .video-container {
+   display: flex;
+   justify-content: center; /* Центрируем по горизонтали */
+   align-items: center; /* Центрируем по вертикали, если нужно */
+ margin: 10 auto;
+}
+.video-container iframe{
+     border-radius: 1rem;
+}
 
 /* Правила для мобильных устройств */
 @media (max-width: 768px) {
