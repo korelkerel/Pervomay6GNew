@@ -280,3 +280,5 @@ function toggleMenu() {
         }
     }
 });
+import Rellax from 'rellax';
+var rellax = new Rellax('.overlay-title');
